@@ -79,8 +79,8 @@ article h2 {
   color: #686469;
 }
 
-article address {
-  font-style: normal;
+.author,
+time {
   font-size: 11px;
   color: #686469;
 }
@@ -99,7 +99,7 @@ section img {
   margin-bottom: 15px;
 }
 
-p {
+section p {
   margin: 0;
   line-height: 26px;
   text-indent: 2em;
@@ -159,13 +159,6 @@ aside h1 {
 
 aside article { padding: 20px; }
 
-.tips {
-  position: relative;
-  left: 350px;
-  text-align: left;
-  color: #929493;
-}
-
 [type="email"], 
 [type="password"] {
   width: 123px;
@@ -187,11 +180,17 @@ input { position: relative; }
   text-align: right;
 }
 
-.input {
+.input,
+.tips {
   position: relative;
-  vertical-align: middle;
-  left: 350px;
+  top: -3px;
+  line-height: 22px;
+  left: 370px;
   text-align: left;
+}
+
+.tips {
+  color: #929493;
 }
 
 select {
@@ -202,7 +201,6 @@ select {
 
 textarea {
   position: relative;
-  top: 5px;
   height: 100px;
   right: 65px;
   width: 40%;
@@ -213,7 +211,7 @@ textarea {
   position:relative;
   width: 100%;
   height: 40px;
-  margin-top: 22px;
+  margin-top: 0;
   margin-left: auto;
   margin-right: auto;
   background-color: #3256d1;
@@ -223,4 +221,7 @@ textarea {
   border-radius: 0.5em;
 }
 
-#sub { text-indent: 0; }
+#sub { 
+  text-indent: 0;
+  margin: 0;
+}
