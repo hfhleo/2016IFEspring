@@ -122,23 +122,27 @@ section p {
   list-style: none;
 }
 
-/*
+
 figure {
-  position: relative;
-  float: left;
-  width: 100px; /* bug */
-  padding: 10px;
+  display: inline-block;
+  width: 150px;
+  height: 155px;
+  margin: 12px;
+  padding: 15px;
   font-size: 11px;
   border: 1px solid #cbcbcb;
 }
 
-figure img {
-  margin: 12px 0 0 0;
-  width: 100px;
-  height: 80px;
+figure figcaption {
+  text-align: center;
 }
 
-*/
+figure img {
+  width: 150px;
+  height: 125px;
+  margin: 13px 0 0 0;
+}
+
 table {
   width: 100%;
   border-collapse: collapse; 
@@ -195,7 +199,10 @@ input::-webkit-input-placeholder {
   line-height: 22px;
 }
 
-.tips { color: #929493; }
+.tips { 
+  color: #929493; 
+  line-height: 8px;
+}
 
 select {
   position: relative;
@@ -209,6 +216,12 @@ textarea {
   width: 140px;
   right: 65px;
   top: 4px;
+  padding: 0;
+  font-size: 11px;
+}
+
+textarea#note-area {
+  line-height: 11px;  /* bug */
 }
 
 
