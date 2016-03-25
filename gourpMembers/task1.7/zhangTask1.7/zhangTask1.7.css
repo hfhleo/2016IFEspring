@@ -61,6 +61,8 @@ header a:active {
 
 header li:hover { border-bottom: 5px solid #e74f4d; }
 
+header li:hover a { color: #e74f4d; }
+
 #active a { color: #e74f4d; }
 
 #active { border-bottom: 5px solid #e74f4d; }
@@ -313,6 +315,19 @@ header input {
   font-weight: normal;
 }
 
+#nextlist::before {
+  position: absolute;
+  content: '';
+  top: 270px;
+  left: -25px;
+  color: red;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 15px 26px 15px 0;
+  border-color: transparent white transparent transparent;
+}
+
 #beijingnext h2 {
   position: relative;
   top: -40px;
@@ -402,16 +417,6 @@ header input {
 
 #dot div:hover { background: url("image/dot.png") center center no-repeat; }
 
-#triangleL {
-  position: absolute;
-  top: 270px;
-  left: -25px;
-  width: 0px;
-  height: 0px;
-  border-style: solid;
-  border-width: 15px 26px 15px 0;
-  border-color: transparent white transparent transparent;
-}
 
 /* 7 */
 #more { 
@@ -486,8 +491,9 @@ header input {
   background: url("image/imageMore.png") center center /100% no-repeat; 
 }
 
-#triangleR {
+#imageMore::before {
   position: absolute;
+  content: "";
   top: 247px;
   left: 0;
   width: 0px;
@@ -497,6 +503,7 @@ header input {
   border-color: transparent transparent transparent white;
   z-index: 999;
 }
+
 /* 8 */
 #join { height: 749px; }
 
