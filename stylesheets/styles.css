@@ -108,7 +108,7 @@ a:hover small {
 }
 
 .wrapper {
-  width:860px;
+  width:1200px;
   margin:0 auto;
 }
 
@@ -141,7 +141,7 @@ table {
 th, td {
   text-align:left;
   padding:5px 10px;
-  border-bottom:1px solid #e5e5e5;
+  border:1px solid #e5e5e5;
 }
 
 dt {
@@ -149,9 +149,15 @@ dt {
   font-weight:700;
 }
 
+.th { width: 190px; }
+
 th {
+  height: 30px;
   color:#444;
+  font-weight: bold;
 }
+
+tr:hover {background-color: #f3f3f3; }
 
 img {
   max-width:100%;
@@ -224,7 +230,8 @@ header ul a strong {
 }
 
 section {
-  width:500px;
+  width: 900px;
+  margin-left: 500px;
   float:right;
   padding-bottom:50px;
 }

@@ -23,7 +23,7 @@ header {
 header h1 {
   float: left;
   height: 56px;
-  background: url("image/littleBook.png") 59px center no-repeat ;
+  background: url("../img/littleBook.png") 59px center no-repeat ;
   text-indent: 101px;
   line-height: 56px;
   font-size: 20px;
@@ -61,6 +61,8 @@ header a:active {
 
 header li:hover { border-bottom: 5px solid #e74f4d; }
 
+header li:hover a { color: #e74f4d; }
+
 #active a { color: #e74f4d; }
 
 #active { border-bottom: 5px solid #e74f4d; }
@@ -72,7 +74,7 @@ header input {
   height: 56px;
   padding: 16px 0 25px 0;
   margin-right: 67px;
-  background: url("image/logIn.png") 0 17px no-repeat;
+  background: url("../img/logIn.png") 0 17px no-repeat;
   text-align: right;
   color: #e74f4d;
   border: none;
@@ -83,8 +85,8 @@ header input {
   position: relative;
   width: 100%;
   height: 691px;
-  background: url("image/start1.png") center center /100% no-repeat,
-              url("image/start2.png") center top /100% no-repeat;
+  background: url("../img/start1.png") center center /100% no-repeat,
+              url("../img/start2.png") center top /100% no-repeat;
 }
 
 #start h1 {
@@ -166,8 +168,8 @@ header input {
 /* 4 */
 #lookFor {
   height: 341px;
-  background: url("image/lookFor1.png") center center /100% no-repeat,
-              url("image/lookFor2.png") center center /100% no-repeat;
+  background: url("../img/lookFor1.png") center center /100% no-repeat,
+              url("../img/lookFor2.png") center center /100% no-repeat;
 }
 
 #lookFor h1 {
@@ -213,7 +215,7 @@ header input {
   padding: 9px;
   color: #a8aaaa;
   font-size: 14px;
-  background: url("image/downIcon.png") 204px 8px no-repeat padding-box,white padding-box;
+  background: url("../img/downIcon.png") 204px 8px no-repeat padding-box,white padding-box;
   border: 2px solid rgba(256,256,256,0.1);
   border-radius: 0;
   cursor: pointer;
@@ -238,7 +240,7 @@ header input {
 }
 
 .likeOption li:hover {
-  background: url("image/downIcon.png") 6px center no-repeat, #be4e48;
+  background: url("../img/downIcon.png") 6px center no-repeat, #be4e48;
   color: white;
 }
 
@@ -302,7 +304,7 @@ header input {
   float: left;
   width: 66.6%;
   height: 566px;
-  background: url("image/line.jpg") center /100% no-repeat;
+  background: url("../img/line.jpg") center /100% no-repeat;
 }
 
 #beijingnext h1 {
@@ -311,6 +313,19 @@ header input {
   color: white;
   font-size: 50px;
   font-weight: normal;
+}
+
+#nextlist::before {
+  position: absolute;
+  content: '';
+  top: 270px;
+  left: -25px;
+  color: red;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 15px 26px 15px 0;
+  border-color: transparent white transparent transparent;
 }
 
 #beijingnext h2 {
@@ -389,7 +404,7 @@ header input {
   margin: 0 6px;
   width: 14px;
   height: 14px;
-  background: url("image/dot.png") center center no-repeat;
+  background: url("../img/dot.png") center center no-repeat;
 }
   
 #dot2,
@@ -397,21 +412,11 @@ header input {
   margin: 0 6px;
   width: 14px;
   height: 14px;
-  background: url("image/whiteDot.png") center center no-repeat;
+  background: url("../img/whiteDot.png") center center no-repeat;
 }
 
-#dot div:hover { background: url("image/dot.png") center center no-repeat; }
+#dot div:hover { background: url("../img/dot.png") center center no-repeat; }
 
-#triangleL {
-  position: absolute;
-  top: 270px;
-  left: -25px;
-  width: 0px;
-  height: 0px;
-  border-style: solid;
-  border-width: 15px 26px 15px 0;
-  border-color: transparent white transparent transparent;
-}
 
 /* 7 */
 #more { 
@@ -483,11 +488,12 @@ header input {
 
 #imageMore {
   position: relative;
-  background: url("image/imageMore.png") center center /100% no-repeat; 
+  background: url("../img/imageMore.png") center center /100% no-repeat; 
 }
 
-#triangleR {
+#imageMore::before {
   position: absolute;
+  content: "";
   top: 247px;
   left: 0;
   width: 0px;
@@ -497,6 +503,7 @@ header input {
   border-color: transparent transparent transparent white;
   z-index: 999;
 }
+
 /* 8 */
 #join { height: 749px; }
 
@@ -551,7 +558,7 @@ header input {
   color: #aaa;
   font-size:12px;
   width: 45px;
-  background: url("image/more.png") left center no-repeat;
+  background: url("../img/more.png") left center no-repeat;
 }
 
 #joinForm {
