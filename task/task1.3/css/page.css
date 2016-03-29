@@ -1,0 +1,96 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Tahoma,Arial,"Helvetica Neue","Hiragino Sans GB",Simsun,sans-self;
+}
+
+
+#card {
+  position: relative;
+  width: auto;
+  height: auto;
+  overflow: auto;
+  padding: 20px;
+  background-color: #eee;
+  border: 1px solid #999;
+}
+
+article {
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #999;
+}
+
+#main {
+  float: left;
+  width: 100%;
+}
+
+#team {
+  float: left;
+  margin-left: -100%;
+  width: 200px;
+}
+
+#members {
+  float: left;
+  margin-left: -120px;
+  width: 120px;
+  padding: 5px;
+}
+
+#description {
+  margin: 0 140px 0 220px;
+}
+
+#description p {
+  margin: 0;
+  font-size: 12px;
+}
+
+
+#team img {
+  width: 80px;
+  height: 80px;
+  border: inherit;
+}
+
+#team p {
+  position: relative;
+  display: inline;
+  vertical-align: top;
+  margin: 0;
+  font-size: 14px;
+  text-align: right;
+}
+
+#members ul {
+  margin: 0;
+  padding: 0;
+}
+
+.personLogo {
+  position: relative;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  list-style: none;
+  margin: 15px;
+}
+
+.personLogo img {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #999;
+}
