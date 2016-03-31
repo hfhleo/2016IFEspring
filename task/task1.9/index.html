@@ -4,18 +4,18 @@
 <head>
 <meta charset="UTF-8">
 <title>百度学院任务1.9</title>
-<link rel="stylesheet" href="zhangTask1.9.css">
+<link rel="stylesheet" href="css/page.css">
 </head>
 
 <body>
 <header>
-  <p><img src="image/logo.png" alt="pageName" title="pageName"> </p>
+  <p><img src="img/logo.png" alt="pageName" title="pageName"> </p>
   <input type="text" value="" name="search">
   <button>登录</button>  
 </header>
 <aside>
   <section id="user">
-    <h1><img src="image/account.png" alt="user" title="user">ABC123</h1>
+    <h1><img src="img/account.png" alt="user" title="user">ABC123</h1>
     <p id="favor">110<span><br>收藏</span></p>
     <p id="funs">313<span><br>粉丝</span></p>
   </section>
@@ -154,36 +154,138 @@
       <div >
         <div class="tables">
           <ul class="nav-tabs">
-            <li class="tab active"><a href="#menu1">项目一</a></li>
-            <li class="tab"><a href="#menu2">项目二</a></li>
-            <li class="tab"><a href="#menu3">项目三</a></li>
-            <li class="tab"><a href="#menu4">项目四</a></li>
-            <li class="tab"><a href="#menu5">项目五</a></li>
+            <li class="tab active">
+              <input id="menu1" type="radio" class="tabs" name="tabs" checked>
+              <label for="menu1">项目一</label>
+              <div class="tabMenu">
+                <table class="table table-bordered">
+                  <tr>
+                    <td>购买材料一</td> <td>购买材料一</td> <td>购买材料一</td> <td>购买材料一</td>
+                  </tr>
+                  <tr>
+                    <td>购买材料二</td> <td>购买材料二</td> <td>购买材料二</td> <td>购买材料二</td>
+                  </tr>
+                  <tr>
+                    <td>购买材料四</td> <td>购买材料四</td> <td>购买材料四</td> <td>购买材料四</td>
+                  </tr>
+                  <tr>
+                    <td>购买材料六</td> <td>购买材料六</td> <td>购买材料六</td> <td>购买材料六</td>
+                  </tr>
+                  <tr>
+                    <td>购买材料十三</td> <td>购买材料十三</td> <td>购买材料十三</td> <td>购买材料十三</td>
+                  </tr>
+                  <tr>
+                    <td>购买材料二十</td> <td>购买材料二十</td> <td>购买材料二十</td> <td>购买材料二十</td>
+                  </tr>
+                </table>
+              </div>
+            </li>
+            <li class="tab">
+              <input id="menu2" type="radio" class="tabs" name="tabs">
+              <label for="menu2">项目二</label>
+              <div class="tabMenu">
+                <table class="table table-bordered">
+                  <tr>
+                    <td>购买设备一</td> <td>购买设备一</td> <td>购买设备一</td> <td>购买设备一</td>
+                  </tr>
+                  <tr>
+                    <td>购买设备二</td> <td>购买设备二</td> <td>购买设备二</td> <td>购买设备二</td>
+                  </tr>
+                  <tr>
+                    <td>购买设备四</td> <td>购买设备四</td> <td>购买设备四</td> <td>购买设备四</td>
+                  </tr>
+                  <tr>
+                    <td>购买设备六</td> <td>购买设备六</td> <td>购买设备六</td> <td>购买设备六</td>
+                  </tr>
+                  <tr>
+                    <td>购买设备十三</td> <td>购买设备十三</td> <td>购买设备十三</td> <td>购买设备十三</td>
+                  </tr>
+                  <tr>
+                    <td>购买设备二十</td> <td>购买设备二十</td> <td>购买设备二十</td> <td>购买设备二十</td>
+                  </tr>
+                </table>
+              </div>
+            </li>
+            <li class="tab">
+              <input id="menu3" type="radio" class="tabs" name="tabs">
+              <label for="menu3">项目三</label>
+              <div class="tabMenu">
+                <table class="table table-bordered">
+                  <tr>
+                    <td>购买车辆一</td> <td>购买车辆一</td> <td>购买车辆一</td> <td>购买车辆一</td>
+                  </tr>
+                  <tr>
+                    <td>购买车辆二</td> <td>购买车辆二</td> <td>购买车辆二</td> <td>购买车辆二</td>
+                  </tr>
+                  <tr>
+                    <td>购买车辆四</td> <td>购买车辆四</td> <td>购买车辆四</td> <td>购买车辆四</td>
+                  </tr>
+                  <tr>
+                    <td>购买车辆六</td> <td>购买车辆六</td> <td>购买车辆六</td> <td>购买车辆六</td>
+                  </tr>
+                  <tr>
+                    <td>购买车辆十三</td> <td>购买车辆十三</td> <td>购买车辆十三</td> <td>购买车辆十三</td>
+                  </tr>
+                  <tr>
+                    <td>购买车辆二十</td> <td>购买车辆二十</td> <td>购买车辆二十</td> <td>购买车辆二十</td>
+                  </tr>
+                </table>
+              </div>
+            </li>
+            <li class="tab">
+              <input id="menu4" type="radio" class="tabs" name="tabs">
+              <label for="menu4">项目四</label>
+              <div class="tabMenu">
+                <table class="table table-bordered">
+                  <tr>
+                    <td>配置人员一</td> <td>配置人员一</td> <td>配置人员一</td> <td>配置人员一</td>
+                  </tr>
+                  <tr>
+                    <td>配置人员二</td> <td>配置人员二</td> <td>配置人员二</td> <td>配置人员二</td>
+                  </tr>
+                  <tr>
+                    <td>配置人员四</td> <td>配置人员四</td> <td>配置人员四</td> <td>配置人员四</td>
+                  </tr>
+                  <tr>
+                    <td>配置人员六</td> <td>配置人员六</td> <td>配置人员六</td> <td>配置人员六</td>
+                  </tr>
+                  <tr>
+                    <td>配置人员十三</td> <td>配置人员十三</td> <td>配置人员十三</td> <td>配置人员十三</td>
+                  </tr>
+                  <tr>
+                    <td>配置人员二十</td> <td>配置人员二十</td> <td>配置人员二十</td> <td>配置人员二十</td>
+                  </tr>
+                </table>
+              </div>
+            </li>
+            <li class="tab">
+              <input id="menu5" type="radio" class="tabs" name="tabs">
+              <label for="menu5">项目五</label>
+              <div class="tabMenu">
+                <table class="table table-bordered">
+                  <tr>
+                    <td>购买辅材一</td> <td>购买辅材一</td> <td>购买辅材一</td> <td>购买辅材一</td>
+                  </tr>
+                  <tr>
+                    <td>购买辅材二</td> <td>购买辅材二</td> <td>购买辅材二</td> <td>购买辅材二</td>
+                  </tr>
+                  <tr>
+                    <td>购买辅材四</td> <td>购买辅材四</td> <td>购买辅材四</td> <td>购买辅材四</td>
+                  </tr>
+                  <tr>
+                    <td>购买辅材六</td> <td>购买辅材六</td> <td>购买辅材六</td> <td>购买辅材六</td>
+                  </tr>
+                  <tr>
+                    <td>购买辅材十三</td> <td>购买辅材十三</td> <td>购买辅材十三</td> <td>购买辅材十三</td>
+                  </tr>
+                  <tr>
+                    <td>购买辅材二十</td> <td>购买辅材二十</td> <td>购买辅材二十</td> <td>购买辅材二十</td>
+                  </tr>
+                </table>
+              </div>
+            </li>
           </ul>
-          <div class="tab-content">
-            <div id="menu1" class="tab-pane fade in active">
-              <table class="table table-bordered">
-                <tr>
-                  <td>购买材料一</td> <td>购买材料一</td> <td>购买材料一</td> <td>购买材料一</td>
-                </tr>
-                <tr>
-                  <td>购买材料二</td> <td>购买材料二</td> <td>购买材料二</td> <td>购买材料二</td>
-                </tr>
-                <tr>
-                  <td>购买材料四</td> <td>购买材料四</td> <td>购买材料四</td> <td>购买材料四</td>
-                </tr>
-                <tr>
-                  <td>购买材料六</td> <td>购买材料六</td> <td>购买材料六</td> <td>购买材料六</td>
-                </tr>
-                <tr>
-                  <td>购买材料十三</td> <td>购买材料十三</td> <td>购买材料十三</td> <td>购买材料十三</td>
-                </tr>
-                <tr>
-                  <td>购买材料二十</td> <td>购买材料二十</td> <td>购买材料二十</td> <td>购买材料二十</td>
-                </tr>
-              </table>
-            </div>
-          </div>
+          <div class="tab-content"></div>
         </div>
       </div>
     </article>

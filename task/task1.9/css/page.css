@@ -39,7 +39,7 @@ header input {
   padding-left: 45px;
   border-radius: 14px;
   border: none;
-  background: url("image/lookfor.png") 20px center no-repeat, white;
+  background: url("img/lookfor.png") 20px center no-repeat, white;
   transition: 0.3s width ease-out;
 }
 
@@ -59,7 +59,7 @@ header button {
   color: white;
   font-size: 12px;
   text-align: right;
-  background: url("image/login.png") left center no-repeat;
+  background: url("img/login.png") left center no-repeat;
   border: none;
 }
 
@@ -135,7 +135,7 @@ aside p span {
   left: -40px;
   padding-left: 40px;
   width: 260px;
-  list-style-image: url("image/table.png");
+  list-style-image: url("img/table.png");
   background-color: #383d4e; 
 }
 
@@ -147,25 +147,23 @@ aside p span {
 
 #userList li:not(.select) { color: #6e8095; }
 
-#userList .folder { list-style-image: url("image/folderDark.png"); }
+#userList .folder { list-style-image: url("img/folderDark.png"); }
 
-#userList .folder.select { list-style-image: url("image/folderLight.png"); } 
+#userList .folder.select { list-style-image: url("img/folderLight.png"); } 
 
-#userList .file.select { list-style-image: url("image/fileLight.png"); }
+#userList .file.select { list-style-image: url("img/fileLight.png"); }
 
-#userList .file { list-style-image: url("image/fileDark.png"); }
+#userList .file { list-style-image: url("img/fileDark.png"); }
 
 #userList .myFavor,
 #userList .myPhoto,
-#userList .myLog { list-style-image: url("image/favor.png"); }
+#userList .myLog { list-style-image: url("img/favor.png"); }
 
-#userList .myShare { list-style-image: url("image/share.png"); }
+#userList .myShare { list-style-image: url("img/share.png"); }
 
-#userList .myNote { list-style-image: url("image/note.png"); }
+#userList .myNote { list-style-image: url("img/note.png"); }
 
 .options fieldset { border: none; }
-
-#userList li:hover { background-color: #383d4e; }
 
 /* main */
 main {
@@ -242,7 +240,7 @@ main {
   font-size: 12px;
   border: 1px solid #cbcbcb;
   border-radius: 0;
-  background: url("image/dorpdown.png") right center no-repeat, white;
+  background: url("img/dorpdown.png") right center no-repeat, white;
 }
 
 #forms .option1 {
@@ -280,7 +278,7 @@ main {
   height: 36px;
   width: 28px;
   font-size: 11px;
-  background: url("image/exchange.png") center center no-repeat;
+  background: url("img/exchange.png") center center no-repeat;
   border: none;
   padding: 0 0 2px 12px;
   color: white;
@@ -325,10 +323,7 @@ main {
   border: none;
   color: white;
   background-color: #398BC2;
-  cursor: pointer;
 }
-
-.options  button:hover { background: #297ba2; }
 
 
 /* 历史查询栏 */
@@ -346,7 +341,7 @@ main {
   width: 31px;
   border: none;
   border: 1px solid #dddee0;
-  background: url("image/moveLeft.png") center center no-repeat,white;
+  background: url("img/moveLeft.png") center center no-repeat,white;
 }
 
 #dayHistory .hisRight {
@@ -354,7 +349,7 @@ main {
   width: 31px;
   border: none;
   border: 1px solid #dddee0;
-  background: url("image/moveRight.png") center center no-repeat,white;
+  background: url("img/moveRight.png") center center no-repeat,white;
 }
 
 #dayHistory section {
@@ -401,14 +396,10 @@ main {
   line-height: 17px;
   color: #535353;
   text-align: right;
-  background: url("image/calendar.png") 17px center no-repeat, white;
+  background: url("img/calendar.png") 17px center no-repeat, white;
   border: 1px solid #dddee0;
 }
 
-#dayHistory section:hover,
-#dayHistory button:hover {
-  background-color: #efefef;
-}
 
 /* 月份统计栏 */
 #monthHistory {
@@ -539,19 +530,28 @@ main {
 .nav-tabs { 
   margin: 0;
   padding: 0; 
+  font-size: 0;
 }
 
 .tab {
   display: inline-block;
-  height: 26px;
   width: 85px;
+  margin-right: 3px;
+}
+
+.tab label {
+  display: block;
+  position: relative;
+  left: -10px;
+  line-height: 26px;
+  width: 85px;
+  margin-left: 0;
   text-align: center;
   background-color: #ededf0;
   border-radius: 3px 3px 0 0;
 }
 
-.tab a:link,
-.tab a:visited {
+.tab a:link {
   padding: 5px;
   font-size: 13px;
   font-weight: 300;
@@ -559,27 +559,19 @@ main {
   text-decoration: none;
 }
 
-.tab:hover { background-color: #efefef; }
-
-.nav-tabs .active { 
-  position: relative;
-  top: 2px;
-  height: 28px;
-  background-color: white;
-  border-radius: 3px;
-  border: 2px solid #dddee0;
-  border-bottom: none;
-  /* 还有更好实现边框的方法么？ */
-}
+#sub .tables { position: relative; }
 
 #sub table {
+  position: relative;
+  top: 0;
+  left: 0;
   width: 403px;
   height: 186px;
   margin: 0 50px 37px 38px;
   border-collapse: collapse;
   border: 1px solid #dddee0;
 }
-/* 试写切换页面 */
+
 #sub td {
   font-family: serif;
   font-size: 12px;
@@ -588,12 +580,34 @@ main {
   text-align: center;
   width: 100px;
   height: 29px;
-  border: 1px solid #dddee0;
+  border: 1px solid #ccc;
 }
 
-#sub td:hover { background-color: #efefef; }
+#sub td:hover { background-color: #f4f6f7; }
 
-#sub [name="tabs"] { display: none; }
+#sub .tabs {
+  cursor: pointer;
+  display: none;
+}
+
+.tab .tabMenu { display: none; }
+
+.tab .tabs:checked ~ label {
+  position: relative;
+  top: 2px;
+  height: 28px;
+  background-color: white;
+  border-radius: 3px 3px 0 0;
+  border: 2px solid #dddee0;
+  border-bottom: none;
+}
+
+#sub .tab .tabs:checked ~ .tabMenu { /* blog */
+  display: block;
+  position: absolute;
+  top: 55px;
+  left: 6px;
+}
 
 /* 第一组项目（右）*/
 #subDetail {
@@ -649,6 +663,8 @@ main {
 #subDetail #subCheck { display: none; }
 
 #subDetail #subCheck + label::before {
+  position: relative;
+  top: 6px;
   content: "";
   display: inline-block;
   vertical-align: top;
@@ -661,7 +677,7 @@ main {
 }
 
 #subDetail #subCheck:checked + label::before {
-  background: url("image/checkbox.png") center center no-repeat;
+  background: url("img/checkbox.png") center center no-repeat;
 }
 
 #subDetail #subCheck + label {
@@ -684,7 +700,6 @@ main {
   color: white;
 }
 
-#subDetail > button:hover { background-color: #287aa1; }
 
 /* 日历 */
 #calendar {
@@ -719,7 +734,7 @@ main {
 #calendar select {
   appearance: none;
   padding: 3px 25px 3px 5px;
-  border: 2px solid #dddee0;
+  border: 1px solid #cccccc;
   height: 24px;
   font-size: 11px;
 }
@@ -730,7 +745,7 @@ main {
   padding: 3px 8px 3px 8px;
   height: 24px;
   font-size: 11px;
-  border: 2px solid #dddee0;
+  border: 1px solid #cccccc;
   background-color: white;
 }
 
@@ -810,18 +825,20 @@ main {
 }
 #rank th {
   height: 25px;
+  padding-top: 3px;
   text-align: center;
+  line-height: 24px;
   font-size: 13px;
   font-weight: 500;
-  border: 2px solid #dddee0;
+  border: 1px solid #ccc;
 }
 #rank td {
   min-width: 50px;
   height: 23px;
   padding: 1px 0 0 0;
-  line-height: 21px;
+  line-height: 23px;
   font-size: 11px;
-  border: 2px solid #dddee0;
+  border: 1px solid #ccc;
 }
 
 #rank .rankNum { width: 65px; }
@@ -833,7 +850,7 @@ main {
   margin: 0 20px 0 35px;
   font-size: 10px;
   text-align: right;
-  line-height: 21px;
+  line-height: 23px;
 }
 
 #rank td > div {
