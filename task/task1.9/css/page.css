@@ -1,0 +1,880 @@
+* { box-sizing: border-box; }
+
+html {
+  overflow-x: auto;
+  overflow-y: auto;
+  font-family: "Hiragino Sans GB", "Microsoft YaHei","WenQuanYi Micro Hei", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 1280px;
+  /*
+  background-color: #2a2e3d;
+  */
+}
+
+
+/* header */
+header {
+  position: relative;
+  height: 56px;
+  width: 100%;
+  background-color: #228ABF;
+}
+
+header p {
+  position: relative;
+  top: 10px;
+  margin: 0 0 0 50px;
+}
+
+header input {
+  position: absolute;
+  top: 14px;
+  right: 156px;
+  height: 28px;
+  width: 313px;
+  padding-left: 45px;
+  border-radius: 14px;
+  border: none;
+  background: url("img/lookfor.png") 20px center no-repeat, white;
+  transition: 0.3s width ease-out;
+}
+
+header input:focus { 
+  outline: none; 
+  width: 500px;
+}
+
+header button {
+  position: absolute;
+  top: 17px;
+  right: 94px;
+  width: 41px;
+  height: 22px;
+  line-height: 16px;
+  padding: 0;
+  color: white;
+  font-size: 12px;
+  text-align: right;
+  background: url("img/login.png") left center no-repeat;
+  border: none;
+}
+
+
+/* aside */
+aside {
+  float: left;
+  position: relative;
+  width: 260px;
+  /* 高度如何灵活控制 */
+  height: 1213px;
+  color: white;
+  background-color: #2a2e3d;
+}
+
+aside #user {
+  text-align: center;
+  padding: 0;
+}
+
+aside img {
+  margin-right: 18px;
+  border: 1px solid white;
+  border-radius: 28px;
+  padding: 3px;
+}
+
+aside h1 {
+  position: relative;
+  top: 0;
+  left: -22px;
+  margin: 21px 0 24px 0;
+  height: 57px;
+  color: #f6f5f5;
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: normal;
+}
+
+aside p {
+  font-family: "SimHei", sans-serif;
+  font-size: 16px;
+  line-height: 18px;
+  color: #6E8095;
+  background-color: transparent;
+}
+
+aside p span {
+  font-size: 12px;
+  line-height: 13px;
+}
+
+#favor {
+  float: left;
+  margin: 0 55px 0 64px;
+}
+
+#funs { 
+  text-align: left;
+  margin-bottom: 22px;
+}
+
+#userList {
+  font-size: 12px;
+  line-height: 48px;
+  color: #6e8095;
+}
+
+#userList ul { list-style-position: inside; }
+
+.myTable {
+  position: relative;
+  left: -40px;
+  padding-left: 40px;
+  width: 260px;
+  list-style-image: url("img/table.png");
+  background-color: #383d4e; 
+}
+
+.myTable > ul { padding-left: 20px; }
+
+#userList .myTable li { line-height: 30px; }
+
+#userList ul > .select { color: white; }
+
+#userList li:not(.select) { color: #6e8095; }
+
+#userList .folder { list-style-image: url("img/folderDark.png"); }
+
+#userList .folder.select { list-style-image: url("img/folderLight.png"); } 
+
+#userList .file.select { list-style-image: url("img/fileLight.png"); }
+
+#userList .file { list-style-image: url("img/fileDark.png"); }
+
+#userList .myFavor,
+#userList .myPhoto,
+#userList .myLog { list-style-image: url("img/favor.png"); }
+
+#userList .myShare { list-style-image: url("img/share.png"); }
+
+#userList .myNote { list-style-image: url("img/note.png"); }
+
+.options fieldset { border: none; }
+
+/* main */
+main {
+  margin-left: 260px;
+  background-color:  #eeeeed;
+}
+
+#forms {
+  padding-top: 19px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 1182px;
+  width: 891px;
+}
+
+
+/* nav bar */
+#mainNav {
+  height: 31px;
+  margin: 0;
+  background-color: white;
+}
+
+#mainNav ul { 
+  margin: 0; 
+  height: 31px;
+}
+
+#mainNav li {
+  display: inline-block;
+  font-family: "SimHei", sans-serif;
+  font-size: 12px;
+  line-height: 23px;
+  color: #aaa;
+}
+
+#mainNav li:not(:nth-last-child(1))::after { content: " / "; }
+
+#mainNav li a:active,
+#mainNav li a:link {
+  text-decoration: none;
+  color: #aaa;
+}
+
+#mainNav li .active:link { color: #6898c2; }
+
+
+/* 查询选项栏 */
+#forms .options {
+  display: flex;
+  justify-content: space-between;
+  width: 891px;
+  height: 86px;
+  margin: 0 0 9px 0;
+  font-family: "SimHei", sans-serif;
+  background-color: white;
+  border: 1px solid #dddee0;
+}
+
+#forms label {
+  font-size: 12px;
+  line-height: 26px;
+  color: #aaa;
+}
+
+#forms select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+
+  height: 26px;
+  padding: 4px 25px 4px 10px;
+  font-size: 12px;
+  border: 1px solid #cbcbcb;
+  border-radius: 0;
+  background: url("img/dorpdown.png") right center no-repeat, white;
+}
+
+#forms .option1 {
+  margin: 15px 0px 45px 30px;
+  padding: 0;
+  width: 130px;
+  height: 26px;
+}
+
+#forms .option1 label { margin: 0 15px 0 0; }
+
+#forms .option1 select { width: 73px; }
+
+#forms .optionPlayer {
+  position: relative;
+  width: 190px;
+  height: 86px;
+  padding: 13px 25px 13px 0;
+}
+
+#forms label[for="purchaser"] { margin: 16px 10px 4px 0; }
+
+#forms .purchaser { margin-bottom: 4px; }
+
+.optionPlayer select {
+  width: 121px;
+  height: 26px;
+}
+
+#forms label[for="seller"] { margin: 4px 10px 4px 0; }
+
+.exchange {
+  position: absolute;
+  top: 25px;
+  height: 36px;
+  width: 28px;
+  font-size: 11px;
+  background: url("img/exchange.png") center center no-repeat;
+  border: none;
+  padding: 0 0 2px 12px;
+  color: white;
+  cursor: pointer;
+}
+
+.optionDetails {
+  width: 316px;
+  height: 86px;
+  padding: 13px 0 13px 0;
+}
+
+#optionDate {
+  position: relative;
+  top: 2px;
+}
+
+#optionDate,
+#optionNumbers {
+  width: 121px;
+  height: 26px;
+  margin-bottom: 4px;
+}
+
+#optionPlayers,
+#optionDay {
+  width: 71px;
+  height: 26px;
+  margin-bottom: 4px;
+}
+#forms label { 
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.options > button {
+  width: 51px;
+  height: 26px;
+  margin: 30px 112px 30px 0;
+  font-size: 12px;
+  line-height: 24px;
+  border: none;
+  color: white;
+  background-color: #398BC2;
+}
+
+
+/* 历史查询栏 */
+#dayHistory {
+  display: flex;
+  justify-content: space-between;
+  width: 891px;
+  height: 65px;
+  margin: 0 0 21px 0;
+  font-family: "MicrosoftYaHei",sans-serif;
+}
+
+#dayHistory .hisLeft {
+  height: 65px;
+  width: 31px;
+  border: none;
+  border: 1px solid #dddee0;
+  background: url("img/moveLeft.png") center center no-repeat,white;
+}
+
+#dayHistory .hisRight {
+  height: 65px;
+  width: 31px;
+  border: none;
+  border: 1px solid #dddee0;
+  background: url("img/moveRight.png") center center no-repeat,white;
+}
+
+#dayHistory section {
+  width: 111px;
+  height: 65px;
+  padding: 13px 0 10px 0;
+  border: 1px solid #dddee0;
+  background-color: white;
+}
+
+#dayHistory .active {
+  border-top: 4px solid #4388c8;
+  padding-top: 9px;
+}
+
+#dayHistory h1 {
+  margin: 0 0 9px 0;
+  font-weight: normal;
+  font-size: 12px;
+  text-align: center;
+  line-height: 15px;
+  color: #323333;
+}
+
+#dayHistory p {
+  margin: 0;
+  font-size: 15px;
+  text-align: center;
+  color: #aeaead;
+}
+
+#dayHistory p strong {
+  font-size: 21px;
+  font-weight: normal;
+  line-height: 15px;
+  color: #ec6500;
+}
+
+#dayHistory .hisSearch {
+  width: 131px;
+  height: 65px;
+  padding-right: 18px;
+  font-size: 13px;
+  line-height: 17px;
+  color: #535353;
+  text-align: right;
+  background: url("img/calendar.png") 17px center no-repeat, white;
+  border: 1px solid #dddee0;
+}
+
+
+/* 月份统计栏 */
+#monthHistory {
+  width: 891px;
+  height: 90px;
+  margin: 0 0 14px 0;
+}
+
+#monthHistory > h1 {
+  margin: 0;
+  font-size: 11px;
+  line-height: 18px;
+  color: #323333;
+  font-weight: normal;
+}
+
+#monthHistory div {
+  display: flex;
+  justify-content: space-between;
+}
+
+#monthHistory section {
+  width: 201px;
+  height: 71px;
+  background-color: white;
+  border: 2px solid #dddee0;
+}
+
+#monthHistory section::after {
+  display: block;
+  position: relative;
+  top: -52px;
+  left: 121px;
+  content: "";
+  width: 61px;
+  height: 47px;
+  background-color: #43b29e;
+}
+
+#monthHistory h3 {
+  margin: 20px 0 12px 12px;
+  font-size: 10px;
+  color: #323333;
+  font-weight: normal;
+}
+
+#monthHistory p {
+  margin: 0 0 0 12px;
+  font-size: 10px;
+  color: #aaa;
+}
+
+#monthHistory .month1::before { 
+  position: absolute;
+  content: "";
+  height: 67px;
+  border-left: 4px solid #43b29e; 
+}
+
+#monthHistory .month2::before { 
+  position: absolute;
+  content: "";
+  height: 67px;
+  border-left: 4px solid #398bc2; 
+}
+
+#monthHistory .month3::before { 
+  position: absolute;
+  content: "";
+  height: 67px;
+  border-left: 4px solid #d04a36; 
+}
+
+#monthHistory .month4::before { 
+  position: absolute;
+  content: "";
+  height: 67px;
+  border-left: 4px solid #e2cd46; 
+}
+
+#monthHistory .month2::after { background-color: #398bc2; }
+#monthHistory .month3::after { background-color: #d04a36; }
+#monthHistory .month4::after { background-color: #e2cd46; }
+
+
+/* 第一组项目（左）*/
+#sub {
+  float: left;
+  width: 531px;
+  height: 357px;
+  margin: 0 0 9px 0;
+  font-family: "MicrosoftYaHei",sans-serif;
+  border-radius: 6px;
+  border: 2px solid #dddee0;
+}
+
+#sub > h1 {
+  position: relative;
+  top: 0;
+  height: 41px;
+  margin: 0;
+  padding: 14px 0 14px 21px; 
+  font-size: 12px;
+  color: #aaa;
+  font-weight: normal;
+  background-color: #f4f5f6;
+  border-bottom: 1px solid #dddee0;
+}
+
+#sub > div {
+  background-color: white;
+  width: 527px;
+  height: 316px;
+  padding: 13px 20px 24px 20px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom: 2px solid #dddee0;
+}
+
+#sub .tab-content {
+  width: 491px;
+  height: 253px;
+  padding-top: 27px;
+  border-radius: 3px;
+  border: 2px solid #dddee0;
+}
+
+.nav-tabs { 
+  margin: 0;
+  padding: 0; 
+  font-size: 0;
+}
+
+.tab {
+  display: inline-block;
+  width: 85px;
+  margin-right: 3px;
+}
+
+.tab label {
+  display: block;
+  position: relative;
+  left: -10px;
+  line-height: 26px;
+  width: 85px;
+  margin-left: 0;
+  text-align: center;
+  background-color: #ededf0;
+  border-radius: 3px 3px 0 0;
+}
+
+.tab a:link {
+  padding: 5px;
+  font-size: 13px;
+  font-weight: 300;
+  color: #535353;
+  text-decoration: none;
+}
+
+#sub .tables { position: relative; }
+
+#sub table {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 403px;
+  height: 186px;
+  margin: 0 50px 37px 38px;
+  border-collapse: collapse;
+  border: 1px solid #dddee0;
+}
+
+#sub td {
+  font-family: serif;
+  font-size: 12px;
+  font-weight: 300;
+  padding: 7px 0 7px 0;
+  text-align: center;
+  width: 100px;
+  height: 29px;
+  border: 1px solid #ccc;
+}
+
+#sub td:hover { background-color: #f4f6f7; }
+
+#sub .tabs {
+  cursor: pointer;
+  display: none;
+}
+
+.tab .tabMenu { display: none; }
+
+.tab .tabs:checked ~ label {
+  position: relative;
+  top: 2px;
+  height: 28px;
+  background-color: white;
+  border-radius: 3px 3px 0 0;
+  border: 2px solid #dddee0;
+  border-bottom: none;
+}
+
+#sub .tab .tabs:checked ~ .tabMenu { /* blog */
+  display: block;
+  position: absolute;
+  top: 55px;
+  left: 6px;
+}
+
+/* 第一组项目（右）*/
+#subDetail {
+  margin: 0 0 9px 540px;
+  width: 351px;
+  height: 358px;
+  font-family: "MicrosoftYaHei",sans-serif;
+  border-radius: 6px;
+  border: 2px solid #dddee0;
+  background-color: white;
+}
+
+#subDetail > h1 {
+  position: relative;
+  top: 0;
+  height: 41px;
+  margin: 0;
+  padding: 14px 0 14px 21px; 
+  font-size: 12px;
+  color: #aaa;
+  font-weight: normal;
+  background-color: #f4f5f6;
+  border-bottom: 1px solid #dddee0;
+}
+
+#subDetail table {
+  width: 281px;
+  margin: 13px auto 0 auto;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 10px;
+}
+
+#subDetail table h1 {
+  font-size: 12px;
+  font-weight: normal;
+  color: #c3c2c2;
+  line-height: 10px;
+}
+
+#subDetail table td {
+  padding: 5px 0 0 15px;
+  height: 45px;
+  border-bottom: 1px solid #e8e8e8;  
+}
+
+#subDetail .td2 { border-right: 1px solid #e8e8e8;  }
+
+#subDetail td h1 { margin-top: 0; }
+
+#subDetail .td4 { padding-bottom: 95px; }
+
+#subDetail #subCheck { display: none; }
+
+#subDetail #subCheck + label::before {
+  position: relative;
+  top: 6px;
+  content: "";
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 8px;
+  width: 14px;
+  height: 14px;
+  background-color: #d5d5d5;
+  border: none;
+  cursor: pointer;
+}
+
+#subDetail #subCheck:checked + label::before {
+  background: url("img/checkbox.png") center center no-repeat;
+}
+
+#subDetail #subCheck + label {
+  margin: 10px 0 0 38px;
+  padding: 1px 0 1px 0;
+  height: 16px;
+  font: 12px;
+  line-height: 16px;
+  color: #c3c2c2;
+}
+
+#subDetail > button {
+  float: right;
+  width: 51px;
+  height: 26px;
+  margin: 5px 35px 37px 0;
+  border: none;
+  background-color: #388AC1;
+  font-size: 12px;
+  color: white;
+}
+
+
+/* 日历 */
+#calendar {
+  float: left;
+  width: 351px;
+  height: 357px;
+  font-size: 12px;
+  border-radius: 6px;
+  border: 2px solid #dddee0;
+  background-color: white;
+}
+
+#calendar > h1 {
+  position: relative;
+  top: 0;
+  margin-top: 0;
+  height: 41px;
+  padding: 14px 0 14px 21px; 
+  font-size: 12px;
+  color: #aaa;
+  font-weight: normal;
+  background-color: #f4f5f6;
+  border-bottom: 1px solid #dddee0;
+}
+
+#calendar .calendarOption {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20px 10px 20px;
+}
+
+#calendar select {
+  appearance: none;
+  padding: 3px 25px 3px 5px;
+  border: 1px solid #cccccc;
+  height: 24px;
+  font-size: 11px;
+}
+
+#calendar .calendarMonth { padding: 3px 30px 3px 20px; }
+
+#calendar .calendarOption button {
+  padding: 3px 8px 3px 8px;
+  height: 24px;
+  font-size: 11px;
+  border: 1px solid #cccccc;
+  background-color: white;
+}
+
+#calendar table { 
+  margin: 0 auto; 
+  border-collapse: collapse;
+  /*如何实现表头 border 分离 */
+}
+
+#calendar table th {
+  height: 30px;
+  text-align: center;
+  font-weight: normal;
+  border-left: none;
+  border-right: none;
+  border-top: 2px solid #a9cfec;
+  border-bottom: 2px solid #dddee0;
+}
+
+#calendar table h1 {
+  margin: 0;
+  font-size: 9px;
+  line-height: 11px;
+  font-weight: 600;
+}
+
+#calendar td {
+  width: 42px;
+  height: 30px;
+  padding: 6px 0 5px 0;
+  text-align: center;
+}
+
+#calendar p { 
+  margin: 0; 
+  font-size: 11px;
+  line-height: 15px;
+}
+
+#calendar .holiday h1 { color: #d04b36; }
+
+#calendar .festival p {
+  color: #d04b36;
+  font-weight: bold;
+}  
+
+#calendar .select { border: 2px solid #f7d463; }
+
+
+/* 品牌榜 */
+#rank {
+  height: 357px;
+  margin: 0 0 0 360px;
+  font-size: 12px;
+  border-radius: 6px;
+  border: 2px solid #dddee0;
+  background-color: white;
+}
+
+#rank h1 {
+  position: relative;
+  top: 0;
+  margin-top: 0;
+  height: 41px;
+  padding: 14px 0 14px 21px; 
+  font-size: 12px;
+  color: #aaa;
+  font-weight: normal;
+  background-color: #f4f5f6;
+  border-bottom: 1px solid #dddee0;
+}
+
+#rank table {
+  margin: 18px auto 20px auto;
+  text-align: center;
+  border-collapse: collapse;
+}
+#rank th {
+  height: 25px;
+  padding-top: 3px;
+  text-align: center;
+  line-height: 24px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid #ccc;
+}
+#rank td {
+  min-width: 50px;
+  height: 23px;
+  padding: 1px 0 0 0;
+  line-height: 23px;
+  font-size: 11px;
+  border: 1px solid #ccc;
+}
+
+#rank .rankNum { width: 65px; }
+#rank .rankTag { width: 90px; }
+#rank .rankSearch { width: 296px; }
+
+#rank td p {
+  float: left;
+  margin: 0 20px 0 35px;
+  font-size: 10px;
+  text-align: right;
+  line-height: 23px;
+}
+
+#rank td > div {
+  height: 4px;
+  margin: 9px 20px 9px 105px;
+}
+
+#rank td > div > div { height: 4px; }
+
+.progress > div {
+  content: "";
+  height: 4px;
+  width: 170px;
+  background-color: #ec6e52;
+}
+
+.progress {
+  content: "";
+  height: 4px;
+  width: 170px;
+  background-color: #dddcdc;
+}
+
+.progress .progress-bar-warning { background-color: #f19e4f; }
+.progress .progress-bar-info { background-color: #7fcbf0; }
+
+#rank tr:hover { background-color: #f3f5f6; }
