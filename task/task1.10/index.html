@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="stylesheet.css">
+<title>百度任务1.10</title>
+<style>
+* { box-sizing: border-box; }
+
+.wrap {
+  padding: 10px;
+  border: 1px solid grey;
+}
+
+[class*="square"] {
+  width: 150px;
+  margin: 10px;
+  border: 1px solid #f00;
+  text-align: center;
+}
+.square1 {
+  height: 120px;
+  line-height: 120px;
+}
+
+.square2 {
+  height: 100px;
+  line-height: 100px;
+}
+
+.square3 {
+  height: 40px;
+  line-height: 40px;
+}
+
+.square4 {
+  height: 200px;
+  border: 1px solid #0005ff;
+  line-height: 200px;
+}
+
+@media screen and (min-width: 641px) {
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .square4 { order: -1 }
+}
+
+</style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="square1">1</div>
+    <div class="square2">2</div>
+    <div class="square3">3</div>
+    <div class="square4">4</div>
+  </div>
+</body>
+
+</html>
+
+
