@@ -1,0 +1,164 @@
+@import "reset"
+$ppr: 0.33rem/20    //这个比例到底怎么算比较好？
+$img: "../img/"
+
+
+// @mdia，font-size 设置
+@for $i from 0 through 10
+  @media screen and (min-width: 320px+40*$i)
+    html
+      font-size: 16px+2px*$i
+
+html
+  color: #666
+  body
+    font-family: "黑体","Helvetica Neue","Heiti SC",sans-self
+    background-color: #f5f5f5
+
+/* header
+.header
+  position: fixed
+  top: 0
+  width: 100%
+  z-index: 99
+  .title
+    width: 100%
+    height: 114*$ppr
+    line-height: 114*$ppr
+    text-align: center
+    font-size: 52*$ppr
+    color: white
+    background-color: #91d6d9
+  #back
+    position: fixed
+    margin: 30*$ppr 0 0 30*$ppr
+    padding: 0 0 0 65*$ppr
+    height: 60*$ppr
+    color: white
+    font-size: 46*$ppr
+    background: url("#{$img}back.png") left center /contain no-repeat
+    border: none
+    z-index: 1
+
+/* nav
+.nav
+  margin-top: 114*$ppr
+  .navUl
+    display: flex
+    justify-content: space-around
+    height: 117*$ppr
+    background-color: white
+    .navLi
+      flex: 1 1 auto
+      text-align: center
+      font-size: 43*$ppr
+      line-height: 117*$ppr
+      &.active
+        border-bottom: 8*$ppr solid #91d6d9
+
+/* mode 0
+.mode0
+  background-color: white
+  .mode0Image
+    width: 100%
+    margin: 0
+  .mode0Ul
+    display: flex
+    height: 295*$ppr
+    position: relative
+    top: -11*$ppr
+    margin: 0 23*$ppr 0 23*$ppr
+    border-bottom: 4*$ppr solid #dedede
+    .mode0Tag::before
+      display: block
+      margin: 57*$ppr auto 39*$ppr auto
+      width: 122*$ppr
+      height: 122*$ppr
+      content: ""
+      background: url("#{$img}tag.png") center center /(122*$ppr) no-repeat
+    .mode0Tag
+      flex: 1 1 auto
+      text-align: center
+      font-size: 40*$ppr
+  .mode0Dl
+    display: flex
+    padding: 40*$ppr 23*$ppr 
+    .mode0Dt
+      flex: 1 1 auto
+      text-align: center
+      border-right: 4*$ppr solid #dfdfdf
+      img 
+        height: 184*$ppr
+      h3
+        font-size: 52*$ppr
+      h4
+        font-size: 40*$ppr
+      &:nth-last-child(1)
+        border-right: none
+
+/* mode 1, mode 2
+.mode1, .mode2
+  margin-top: 36*$ppr
+  background-color: white
+  .title
+    height: 117*$ppr
+    margin: 0 34*$ppr
+    padding: 27*$ppr 0 29*$ppr 0
+    font-size: 50*$ppr
+    border-bottom: 4*$ppr solid #e0e0e0
+  table
+    margin: 13*$ppr 8*$ppr 0 8*$ppr
+    border-spacing: 24*$ppr
+    border-collapse: separate
+    .modeText
+      width: 40% 
+      height: 100*$ppr
+      background-color: #f8f8f8
+      text-align: center
+      font-size: 40*$ppr
+    .modeImg
+      img
+        display: block
+        width: 243*$ppr
+        height: 222*$ppr
+        border: 4*$ppr solid #fed79b
+
+/* mode 3
+.mode3
+  margin: 36*$ppr 0 134*$ppr 0
+  background-color: white
+  .mode3Section
+    display: flex
+    height: 249*$ppr
+    padding: 21*$ppr 29*$ppr 24*$ppr 29*$ppr
+    border-bottom: 4*$ppr solid #f2f2f2
+    img
+      display: block
+      width: 282*$ppr
+      height: 199*$ppr
+    .mode3Text
+      padding-left: 29*$ppr
+      width: 660*$ppr
+      height: 150*$ppr
+      font-size: 50*$ppr
+    address
+      font-size: 40*$ppr
+      color: #c5c5c5
+      font-style: normal
+  .mode3Text3
+    height: 388*$ppr
+    padding: 22*$ppr 29*$ppr 20*$ppr 29*$ppr
+    h3
+      font-size: 50*$ppr
+    .mode3Img
+      display: flex
+      justify-content: space-between
+      margin: 24*$ppr 0 20*$ppr 0
+      img
+        width: 300*$ppr
+        height: 204*$ppr
+    address
+      font-size: 40*$ppr
+      color: #c5c5c5
+      font-style: normal
+
