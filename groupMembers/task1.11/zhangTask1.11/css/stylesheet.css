@@ -269,7 +269,10 @@ html body {
   height: 2.475rem;
   font-size: 0.825rem;
 }
-.mode3 .mode3Section address {
+.mode3 .mode3Section .mode3Text h3 {
+  height: 2.475rem;
+}
+.mode3 .mode3Section .mode3Text address {
   font-size: 0.66rem;
   color: #c5c5c5;
   font-style: normal;
