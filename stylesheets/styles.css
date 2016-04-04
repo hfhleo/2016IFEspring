@@ -144,6 +144,10 @@ th, td {
   border:1px solid #e5e5e5;
 }
 
+caption {
+  font-size: 1.3em;
+  color: #aaa;
+}
 dt {
   color:#444;
   font-weight:700;
@@ -155,6 +159,11 @@ th {
   height: 30px;
   color:#444;
   font-weight: bold;
+}
+
+td span {
+  display:inline-block;
+  width: 55px;
 }
 
 tr:hover {background-color: #f3f3f3; }
