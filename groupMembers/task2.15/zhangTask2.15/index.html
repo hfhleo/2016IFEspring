@@ -31,12 +31,10 @@
 
 // 获取数据
 function getData() {
-  var source = document.getElementById("source").innerText;
+  var source = document.getElementById("source").getElementsByTagName("li")[0];
   var data = [];
-  data = source.split("\n");
-  data.pop();
-  for (var i = 0; i < data.length; i++) {
-    data[i] = data[i].split("空气质量：");
+  for (var i = 0; i < source.length; i++) {
+    source[i] = source[i].split("空气质量：");
   }
   return data;
 }
