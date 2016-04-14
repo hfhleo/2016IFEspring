@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="UTF-8">
+<title>百度前端任务2.18</title>
+<style>
+  #inputForm {
+    width: 300px;
+    height: 100px;
+    margin: 50px auto 10px auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #text {
+    position: absolute;
+    top: 30px;
+    width: 294px;
+    height: 25px;
+    text-align: center;
+    border: 2px solid grey;
+    border-radius: 5px;
+  }
+
+  #inputForm button {
+    position: relative;
+    top: 20px;
+    width: 70px;
+    height: 30px;
+    background: transparent;
+    border: 2px solid grey;
+    border-radius: 5px;
+  }
+
+  #line {
+    display: flex;
+    justify-content: center;
+  }
+
+  .square {
+    margin: 0 5px 0 5px;
+    padding: 8px;
+    background-color: #bbb;
+    border: 2px solid #bbb;
+    border-radius: 5px;
+    color: white;
+   }
+</style>
+</head>
+
+<body>
+  <div id="inputForm">
+    <input id="text" type="text">
+    <button id="leftIn">左侧入</button>
+    <button id="rightIn">右侧入</button>
+    <button id="leftOut">左侧出</button>
+    <button id="rightOut">右侧出</button>
+  </div>
+  <div id="line">
+  </div>
+<script src="task.js"></script>
+</body>
+
+</html>
+
+
