@@ -90,6 +90,7 @@ function showHigh(highLight) {
 // 查询键点击效果
 function search() {
   var keyword = document.getElementById("searchInput").value;
+  if (keyword.length === 0) return;
   var highLight = [];
   for (var i = 0; i < line.length; i++) {
     if (isMatch(keyword, line[i])) {
