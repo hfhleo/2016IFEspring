@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="UTF-8">
+<title>百度前端任务2.20</title>
+<style>
+  #inputForm {
+    width: 300px;
+    margin: 50px auto 40px auto;
+  }
+
+  #text {
+    width: 290px;
+    height: 100px;
+    border: 2px solid grey;
+    border-radius: 5px;
+  }
+
+  #inputForm p {
+    color: #aaa;
+    margin: 10px 0 10px 0;
+  }
+
+  .btn {
+    display: flex;
+    justify-content: center;
+  }
+
+  #inputForm button {
+    flex: 1 1 auto;
+    width: 70px;
+    height: 30px;
+    margin: 2px;
+    background: transparent;
+    border: 2px solid grey;
+    border-radius: 5px;
+  }
+
+  .searchPanel {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #inputForm input {
+    flex: 1 1 auto;
+    height: 24px;
+    width: 210px;
+    margin: 2px;
+    background: transparent;
+    border: 2px solid grey;
+    border-radius: 5px;
+  }
+
+  #line {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 500px;
+    margin: 0 auto; 
+  }
+
+  .square {
+    box-sizing: border;
+    margin: 3px;
+    height: 40px;
+    width: 40px;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    line-height: 38px;
+    background-color: #bbb;
+    border-radius: 5px;
+   }
+
+  .highLight {
+    background-color: lightblue;
+    line-height: 50px;
+    height: 50px;
+    width: 50px;
+  }
+</style>
+</head>
+
+<body>
+  <div id="inputForm">
+    <textarea id="text">测 试&#13;s,t\r。i、n.g 1-23,1,32</textarea>
+    <p>可以输入数字、中文、英文。<br>间隔符号为回车，逗号，顿号，空格等。</p>
+    <div class="btn">
+      <button id="leftIn" class="movingLeft">左侧入</button>
+      <button id="rightIn">右侧入</button>
+      <button id="leftOut">左侧出</button>
+      <button id="rightOut">右侧出</button>
+    </div>
+    <div class="searchPanel">
+      <input id="searchInput" type="text">
+      <button id="searchBtn">查询</button>
+    </div>
+  </div>
+  <div id="line">
+  </div>
+<script src="task.js"></script>
+</body>
+
+</html>
+
+
