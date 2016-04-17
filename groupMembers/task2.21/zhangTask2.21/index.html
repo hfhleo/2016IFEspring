@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="UTF-8">
+<title>百度前端任务2.21</title>
+<style>
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+#inputForm {
+  width: 400px;
+  margin: 50px auto 40px auto;
+  font-size: 20px;
+}
+
+#tagInput {
+  height: 30px;
+  border: 2px solid grey;
+  border-radius: 5px;
+}
+#hobbyInput {
+  width: 300px;
+  height: 100px;
+  border: 2px solid grey;
+  border-radius: 5px;
+}
+
+#inputForm p {
+  color: #aaa;
+  margin: 10px 0 10px 0;
+  font-size: 14px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+}
+
+#hobbySend {
+  flex: 1 1 auto;
+  height: 30px;
+  padding: 5px;
+  background: transparent;
+  border: 2px solid grey;
+  border-radius: 5px;
+}
+
+#tagLine,
+#hobbyLine {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 500px;
+  height: 80px;
+  margin: 0 auto; 
+}
+
+.square {
+  box-sizing: border;
+  margin: 20px 3px;
+  height: 40px;
+  padding: 0 5px 0 5px;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  line-height: 38px;
+  background-color: #bbb;
+  border-radius: 5px;
+ }
+
+#tag .square {
+  background-color: skyblue;
+}
+
+#hobby .square {
+  background-color: orange;
+}
+
+.square:hover {
+  background-color: red !important;
+  display: block;
+}
+
+.square::before {
+  display: none;
+  content: "删除 ";
+}
+
+.square:hover::before { display: inline; }
+</style>
+</head>
+
+<body>
+  <div id="inputForm">
+    <div id="tag">
+      <label for="tagInput">Tag:</label>
+      <input id="tagInput" type="text" value="JavaScript" 
+      onkeyup="this.value=this.value.replace(/,/,'')">
+      <div id="tagLine">
+      </div>
+    </div>
+    <div id="hobby">
+      <textarea id="hobbyInput">ab, ba, ac, ca</textarea>
+      <p>输入兴趣爱好，间隔符号为回车，逗号，顿号，空格等。</p>
+      <button id="hobbySend">确认兴趣爱好</button>
+      <div id="hobbyLine">
+      </div>
+    </div>
+  </div>
+<script src="task.js"></script>
+</body>
+
+</html>
+
+<!--
+-->
