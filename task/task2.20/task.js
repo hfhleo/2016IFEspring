@@ -92,6 +92,7 @@ function search() {
   var keyword = document.getElementById("searchInput").value;
   if (keyword.length === 0) return;
   var highLight = [];
+  console.log(keyword);
   for (var i = 0; i < line.length; i++) {
     if (isMatch(keyword, line[i])) {
       highLight.push(i);
@@ -99,7 +100,7 @@ function search() {
   }
   show();   //消除之前的查询
   showHigh(highLight);
-  keyword = "";
+  document.getElementById("searchInput").value = "";
 }
   
 
