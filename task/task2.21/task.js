@@ -21,7 +21,7 @@ function clickEvent() {
 
 // tag按钮事件
 function tagBtn() {
-  var input = document.getElementById("tagInput").value.replace(/,/,"").trim();
+  var input = document.getElementById("tagInput").value.replace(/,|，/,"").trim();
   if (input.length === 0 ) {
     alert("请输入任意有效字符。");
     document.getElementById("tagInput").value = "";
@@ -73,8 +73,15 @@ function dealStr(str) {
 
 // 检查重复(arr, tarArr)
 function noRepeat(arr,tarArr) {
-  var newTag = arr.filter( function(x) {
-    if (tarArr.indexOf(x) === -1) return x;});
+  var mergeStr = tarArr.concat(arr);
+  var newTag = [];
+  var arrLength = mergeStr.length;
+  for (var i = 0; i < arrLength; i++) {
+    var temp = mergeStr.shift();
+    if (mergeStr.indexOf(temp) === -1) {
+      newTag.push(temp);
+    }
+  }
   return newTag;
 }
 

@@ -56,13 +56,13 @@ padding: 0;
   flex-wrap: wrap;
   align-items: center;
   width: 500px;
-  height: 80px;
+  min-height: 80px;
   margin: 0 auto; 
 }
 
 .square {
   box-sizing: border;
-  margin: 20px 3px;
+  margin: 5px 3px;
   height: 40px;
   padding: 0 5px 0 5px;
   color: white;
@@ -100,13 +100,13 @@ padding: 0;
     <div id="tag">
       <label for="tagInput">Tag:</label>
       <input id="tagInput" type="text" value="JavaScript" 
-      onkeyup="this.value=this.value.replace(/,/,'')">
+      onkeyup="this.value=this.value.replace(/,|，/,'')">
       <p>输入标签，按回车，换行，空格或逗号确认输入。</p>
       <div id="tagLine">
       </div>
     </div>
     <div id="hobby">
-      <textarea id="hobbyInput">ab, ba, ac, ca</textarea>
+      <textarea id="hobbyInput">ab, ba, ac, ca, ca</textarea>
       <p>输入兴趣爱好，间隔符号为回车，逗号，顿号，空格等。</p>
       <button id="hobbySend">确认兴趣爱好</button>
       <div id="hobbyLine">
