@@ -79,7 +79,7 @@ traversing.prototype.show = function(arr,aniSpeed) {
         if (list[i] === showNow) {
           list[i].style.backgroundColor = "orange";
         } else {
-        list[i].style = "";
+        list[i].style.backgroundColor = "";
         }
       }
     }
