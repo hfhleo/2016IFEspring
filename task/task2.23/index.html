@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="UTF-8">
+<title>百度前端任务2.23</title>
+<style>
+html { min-width: 700px; }
+.option div {
+  display: flex;
+  justify-content: center;
+}
+
+.option select {
+  margin-right: 20px;
+}
+
+#wrapTree {
+  margin: 10px 50px 0 50px;
+  padding: 0;
+}
+
+#wrapTree div {
+  margin: 2px;
+  padding: 15px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 1 auto;
+  background-color: white;
+  border: 2px solid lightgrey;
+}
+
+button,
+select,
+input {
+  margin: 3px;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid grey;
+  border-radius: 5px;
+}
+</style>
+</head>
+
+<body>
+  <div class="option">
+    <div>
+      <label>演示速度：
+        <select id="interval" class="interval" name="interval">
+          <option value="200" selected>快</option>
+          <option value="500">中</option>
+          <option value="800">慢</option>
+        </select>
+      </label>
+      <label>算法：
+        <select id="arithmetic" name="arithmetic">
+          <option value="0">前序</option>
+          <option value="1">后序</option>
+        </select>
+      </label>
+      <button id="start">开始历遍</button>
+    </div>
+    <div>
+      <button id="generation">生成随机多叉树</button>
+      <input id="searchInput" type="text">
+      <button id="searchStart">查询</button>
+    </div>
+  </div>
+  <div id="wrapTree">
+    <div id="root"></div>
+  </div>
+<script src="task.js"></script>
+</body>
+
+</html>
+
+
