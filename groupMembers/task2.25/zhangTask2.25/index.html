@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="UTF-8">
+<title>百度前端任务2.25</title>
+<style>
+.option div {
+  display: flex;
+  justify-content: center;
+}
+
+#wrapTree {
+  margin: 10px 50px 500px 50px;
+  padding: 0;
+  width: 400px;
+}
+
+#wrapTree div {
+  margin: 0;
+  padding: 6px 0 6px 1.5em;
+  background-color: white;
+}
+
+#wrapTree input {
+  float: left;
+  margin: 0 8px 0 0;
+  padding: 0px;
+  height: 0;
+  line-height: 10px;
+  border-color: transparent transparent transparent brown;
+  border-width: 7px 2px 7px 10px;
+  border-style: solid;
+  border-radius: 0;
+}
+
+button,
+select,
+input {
+  margin: 3px;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid grey;
+  border-radius: 5px;
+}
+</style>
+</head>
+
+<body>
+  <div class="option">
+    <div>
+      <label>节点值:
+        <input id="addInput" type="text">
+      </label>
+      <button id="add">添加</button>
+    </div>
+    <div>
+      <input id="searchInput" type="text">
+      <button id="searchStart">查询</button>
+      <button id="del">删除</button>
+    </div>
+  </div>
+  <div id="wrapTree">
+    <div>NC<input type="button">
+      <div class="open">BD<input type="button">
+        <div class="open">RL<input type="button">
+          <div class="open">HH<input type="button"></div>
+        </div>
+        <div class="open">QM<input type="button">
+          <div class="open">BR<input type="button"></div>
+        </div>
+      </div>
+      <div class="open">AS<input type="button">
+        <div class="open">CS<input type="button">
+          <div class="open">SQ<input type="button"></div>
+          <div class="open">NK<input type="button"></div>
+        </div>
+        <div class="open">PS<input type="button">
+          <div class="open">NI<input type="button"></div>
+          <div class="open">CM<input type="button"></div>
+          <div class="open">OE<input type="button"></div>
+        </div>
+        <div class="open">LK<input type="button">
+          <div class="open">MI<input type="button"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="task.js"></script>
+</body>
+
+</html>
+
+
