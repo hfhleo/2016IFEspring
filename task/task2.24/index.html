@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>百度前端任务2.23</title>
+<title>百度前端任务2.24</title>
 <style>
 html { min-width: 700px; }
 .option div {
@@ -12,7 +12,7 @@ html { min-width: 700px; }
 }
 
 .option select {
-  margin-right: 20px;
+  margin-right: 28px;
 }
 
 #wrapTree {
@@ -46,14 +46,14 @@ input {
 <body>
   <div class="option">
     <div>
-      <label>演示速度：
+      <label>演示速度:
         <select id="interval" class="interval" name="interval">
           <option value="200" selected>快</option>
           <option value="500">中</option>
           <option value="800">慢</option>
         </select>
       </label>
-      <label>算法：
+      <label>算法:
         <select id="arithmetic" name="arithmetic">
           <option value="0">前序</option>
           <option value="1">后序</option>
@@ -66,10 +66,15 @@ input {
       <input id="searchInput" type="text">
       <button id="searchStart">查询</button>
     </div>
+    <div>
+      <label>添加节点:
+      <input id="addInput" type="text">
+      </label>
+      <button id="add">添加</button>
+      <button id="del">删除</button>
+    </div>
   </div>
-  <div id="wrapTree">
-    <div id="root"></div>
-  </div>
+  <div id="wrapTree"></div>
 <script src="task.js"></script>
 </body>
 
