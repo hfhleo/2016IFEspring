@@ -1,0 +1,79 @@
+/* general */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* project */
+body {
+  height: 100%;
+  background: url(http://himg2.huanqiu.com/attachment2010/2013/0806/20130806022803957.jpg) center center /cover no-repeat;
+}
+
+#start {
+  display: block;
+  margin: 300px auto 0 auto;
+  padding: 5px;
+  font-size: 25px;
+}
+
+#rise {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(100,100,100,.7);
+}
+.prompt {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  width: 50%;
+  border: 2px solid black;
+}
+
+.prompt header {
+  height: 40px;
+  background-color: #666;
+  padding-left: 10px;
+}
+
+.prompt h3 {
+  color: #eee;
+  font-size: 16px;
+  line-height: 40px;
+  font-weight: lighter;
+}
+  
+.prompt section {
+  background-color: white;
+  padding: 20px 12px 10px 12px;
+}
+
+.prompt p {
+  min-height: 100px;
+}
+
+.prompt button {
+  position: relative;
+  right: calc(-100% + 258px);
+  margin-left: 5px;
+  width: 124px;
+  height: 40px;
+  color: #eee;
+  background-color: #666;
+  border: none;
+}
