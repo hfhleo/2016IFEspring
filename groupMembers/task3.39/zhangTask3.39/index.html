@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="UTF-8">
+<title>百度前端任务3.39</title>
+<style>
+.table, th, td {
+  margin-bottom: 1500px;
+  padding: 8px;
+  text-align: center;
+  font-size: 18px;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+}
+
+/*
+createTable1 thead {
+  position: fixed;
+  top: 0;
+  color: green;
+}
+*/
+th {
+  position: relative;
+  width: 100px;
+  height: 25px;
+  color: white;
+  background-color: black;
+}
+
+.table .toLarge {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  width: 0;
+  height: 0;
+  padding: 0;
+  background-color: transparent;
+  border-color: transparent transparent white transparent;
+  border-width: 0 5px 7px 5px;
+  border-style: solid;
+}
+
+.table .toSmall {
+  position: absolute;
+  top: 24px;
+  right: 14px;
+  width: 0;
+  height: 0;
+  padding: 0;
+  background-color: transparent;
+  border-color: white transparent transparent transparent;
+  border-width: 7px 5px 0 5px;
+  border-style: solid;
+}
+
+</style>
+</head>
+
+<body>
+<h3>表格</h3>
+<div>
+  <div id="createTable1"></div>
+</div>
+<script src="task.js"></script>
+</body>
+
+</html>
+
+
