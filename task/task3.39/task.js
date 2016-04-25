@@ -126,4 +126,5 @@ for (var i = 0; i < letter.length ; i++) {
     sum: 3 * a,
   };
 }
+// 传入(根目录 id，表头 array，表格数据 object，是否冻结表头)
 var t = createTable('#createTable', tableTitle, tableData, true);
