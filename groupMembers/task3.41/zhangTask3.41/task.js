@@ -1,7 +1,7 @@
 //===============> 日历组件 <===============
 (function () {
   "use strict";
-  window.calendarTool = function(node, earilest, latest) {
+  window.calendarTool = function(node, earilest, latest,callBackFn) {
     // Id 选择器
     var gId = function(x) { return document.getElementById(x); };
     //添加事件(兼容方式)
@@ -36,7 +36,7 @@
         var date = this.dateToString(this.pickDay);
         var insert = "<input type='text' id='dateInput' value='" + date + "'>";
         //生成年月表头
-         insert += "<article id='calendarPanel'><header><input type='button' id='lastMonth'>" +
+         insert += "<article id='calendarPanel' style='display:none'><header><input type='button' id='lastMonth'>" +
            "<h3>" + this.monthLable[this.pickDay.getMonth()] + 
            "<span>" + this.pickDay.getFullYear() + "</span></h3>" + 
            "<input type='button' id='nextMonth'></header>";
@@ -102,6 +102,7 @@
             self.pickDay = new Date(tar.dataset.date);
           }
           self.showTheMonth();
+          self.callBack();
         });
         // 输入框输入日期事件
         addEvent(gId("dateInput"),"keyup",function(x) {
@@ -119,10 +120,20 @@
             }
             self.pickDay = new Date(input.value);
             self.showTheMonth();
+            self.callBack();
           }
         });
-
+        // 点击输入框显示/隐藏日历面板
+        addEvent(gId('dateInput'), 'click', function() {
+          var calendar = document.getElementById('calendarPanel');
+          if ( calendar.style.display === "") {
+            calendar.style.display = "none";
+          } else {
+            calendar.style.display = "";
+          }
+        });
       },
+
       // 检查日期输入格式是否为‘2016-04-01’
       inputCheck: function(input) {
         return /^\d\d\d\d-\d\d-\d\d$/.test(input);
@@ -143,18 +154,20 @@
           return false;
         }
       },
+
+      // callback 函数
+      callBack: function() {
+        alert('我已回调，请主人放心。');
+      },
+      
+      // 流程管理
       init: function() {
         if (earliest) { this.earliest = earliest; }
         if (latest) { this.latest = latest; }
+        if (callBack) { this.callBack = callBack; }
         this.showTheMonth();
       }
     };
     calendar.init();
   };
 })();
-  
-//===============> 数据接口 <===============
-var earliest = new Date('2014-01-01');
-var latest = new Date();
-// 传入(生成日历的节点的 id，最早时限，最晚时限)
-calendarTool('#calendar',earliest,latest);
