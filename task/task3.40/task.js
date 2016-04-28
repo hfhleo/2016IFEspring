@@ -125,7 +125,7 @@
       },
       // 检查日期输入格式是否为‘2016-04-01’
       inputCheck: function(input) {
-        return /^\d...-\d.?-\d.?$/.test(input);
+        return /^\d\d\d\d-\d\d-\d\d$/.test(input);
       },
 
       // 检查日期是否在范围内函数，传入 string 和 Date 均可
