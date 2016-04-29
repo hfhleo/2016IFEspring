@@ -1,9 +1,11 @@
 //===============> 日历组件 <===============
 (function () {
   "use strict";
-  window.calendarTool = function(node, earilest, latest,callBackFn) {
-    // Id 选择器
+  window.calendarTool = function(node, earilest, latest,callBackFn, period) {
+    // 选择器
     var gId = function(x) { return document.getElementById(x); };
+    var $ = function(x){ return document.querySelector(x); };
+    var $a = function(x){ return document.querySelectorAll(x); };
     //添加事件(兼容方式)
     function addEvent(dom,type,fn){
       //对于支持DOM2级事件处理程序addeventListener方法的浏览器
@@ -23,6 +25,7 @@
     var calendar = {
       earliest: null,
       latest: null,
+      period: false,
       pickDay: new Date(),
       monthLable: ["一月","二月","三月","四月","五月","六月",
         "七月","八月","九月","十月","十一月","十二月"],
@@ -36,15 +39,15 @@
         var date = this.dateToString(this.pickDay);
         var insert = "<input type='text' id='dateInput' value='" + date + "'>";
         //生成年月表头
-         insert += "<article id='calendarPanel' style='display:none'><header><input type='button' id='lastMonth'>" +
-           "<h3>" + this.monthLable[this.pickDay.getMonth()] + 
+         insert += "<article id='calendarPanel'><header><input type='button' id='lastMonth'>" +
+           "<h3 id='chooseBtn'>" + this.monthLable[this.pickDay.getMonth()] + 
            "<span>" + this.pickDay.getFullYear() + "</span></h3>" + 
            "<input type='button' id='nextMonth'></header>";
         //生成星期表头
         insert += "<header><p>Mon</p><p>Tue</p><p>Wed</p><p>Thu</p>" +
           "<p>Fri</p><p>Sat</p><p>Sun</p></header>";
         //生成每天表格
-        insert += "<section style='display:flex;flex-wrap:wrap;'>";
+        insert += "<section id='pickDay' style='display:flex;flex-wrap:wrap;'>";
         var nextDay = new Date(this.pickDay);
         nextDay.setDate(1);
         var nextDayWeek = nextDay.getDay(); //当月1号的星期
@@ -69,56 +72,93 @@
           }
           nextDay.setDate(nextDay.getDate() + 1);
         }
+        insert += "</section>";
+        // 生成年份选择框
+        insert += "<section id='pickYear' style='display:none;flex-wrap:wrap;'>" +
+          "<header><input type='button' id='lastYear'>" +
+          "<h3>" + this.pickDay.getFullYear() + "</h3>" + 
+          "<input type='button' id='nextYear'></header>";
+          // 生成月份选择框
+        for (i = 0; i < this.monthLable.length ; i++) {
+          var month = this.monthLable[i];
+          insert += "<div data-month='" + i + "'>" + month + "</div>";
+        }
         insert += "</section></article>";
-        // 日期选择范围提示
-        insert += "<p>双击选择日期，选择范围：" + this.dateToString(this.earliest) + " ~ " +
+          // 日期选择范围提示
+        insert += "<p>选择范围：" + this.dateToString(this.earliest) + " ~ " +
           this.dateToString(this.latest) + "</p>";
 
-        document.querySelector(node).innerHTML = insert;
+        $(node).innerHTML = insert;
         // 更新日期输入框
         gId("dateInput").value = this.dateToString(this.pickDay); 
         this.allEvent();
       },
 
+      /*
+       显示年月选择界面
+      pickYear: function() {
+        var section = document.querySelector('#calendarPanel > section');
+        section.innerHTML = insert;
+      },
+      */
+
       // 绑定事件
       allEvent: function() {
         var self = this;
-        addEvent(gId("calendarPanel"),"click",function(x) {
-          var tar = x.target;
-          // 切换月份按钮事件
-          if (tar.tagName === "INPUT") {
-            if (tar.id === "lastMonth") {
-              self.pickDay.setMonth(self.pickDay.getMonth() - 1);
-            } else if (tar.id === "nextMonth") {
-              self.pickDay.setMonth(self.pickDay.getMonth() + 1);
-            }
-          // 点击选择日期
-          } else if (tar.tagName === "DIV") {
-            // 调用日期上限判断函数
-            if (!self.inScope(tar.dataset.date,self.earliest,self.latest)) {
-              alert("超出日期选择范围了。");
-              return;
-            }
-            self.pickDay = new Date(tar.dataset.date);
-          }
+
+        // 绑定年月选择按钮事件
+        addEvent(gId('lastMonth'), 'click', function() {
+          self.pickDay.setMonth(self.pickDay.getMonth() - 1);
           self.showTheMonth();
-          document.getElementById('calendarPanel').style.display = "";
+        });
+        addEvent(gId('nextMonth'), 'click', function() {
+          self.pickDay.setMonth(self.pickDay.getMonth() + 1);
+          self.showTheMonth();
+        });
+        addEvent(gId('lastYear'), 'click', function() {
+          self.pickDay.setYear(self.pickDay.getFullYear() - 1);
+          $('#pickYear h3').innerHTML = self.pickDay.getFullYear();
+        });
+        addEvent(gId('nextYear'), 'click', function() {
+          self.pickDay.setYear(self.pickDay.getFullYear() + 1);
+          $('#pickYear h3').innerHTML = self.pickDay.getFullYear();
         });
 
-        // 双击选择日期事件
-        addEvent(gId("calendarPanel"), "dblclick", function(x) {
-          console.log("db");
+        // 点击选择日期
+        addEvent(gId("pickDay"),"click",function(x) {
           var tar = x.target;
-          if (tar.tagName === "DIV") {
+          if (/data-date/.test(tar.attributes[0].name)) {
             // 调用日期上限判断函数
             if (!self.inScope(tar.dataset.date,self.earliest,self.latest)) {
               alert("超出日期选择范围了。");
               return;
             }
             self.pickDay = new Date(tar.dataset.date);
+            self.showTheMonth();
+            var timer = setTimeout(function() {
+              gId('calendarPanel').style.display = "none";
+            }, 500);
           }
-          self.showTheMonth();
-          self.callBack();
+        });
+
+        // 点击选择月份
+        addEvent(gId("pickYear"),"click",function(x) {
+          var tar = x.target;
+          if (tar.attributes[0] && /data-month/.test(tar.attributes[0].name)) {
+            self.pickDay.setMonth(tar.dataset.month);
+            self.showTheMonth();
+          }
+        });
+
+        // 切换月年选择模式和日期选择模式事件
+        addEvent(gId('chooseBtn'),'click',function() {
+          if (gId('pickDay').style.display === "flex") {
+            $('#pickDay').style.display = "none";
+            $('#pickYear').style.display = "flex";
+          } else {
+            $('#pickDay').style.display = "flex";
+            $('#pickYear').style.display = "none";
+          }
         });
 
         // 输入框输入日期事件
@@ -137,9 +177,13 @@
             }
             self.pickDay = new Date(input.value);
             self.showTheMonth();
+            var timer = setTimeout(function() {
+              gId('calendarPanel').style.display = "none";
+            }, 500);
             self.callBack();
           }
         });
+
         // 点击输入框显示/隐藏日历面板
         addEvent(gId('dateInput'), 'click', function() {
           var calendar = document.getElementById('calendarPanel');
@@ -173,16 +217,16 @@
       },
 
       // callback 函数
-      callBack: function() {
-        alert('我已回调，请主人放心。');
-      },
+      callBack: function() { },
       
       // 流程管理
       init: function() {
         if (earliest) { this.earliest = earliest; }
         if (latest) { this.latest = latest; }
         if (callBack) { this.callBack = callBack; }
+        if (period) { this.period = period; }
         this.showTheMonth();
+        gId('calendarPanel').style.display = "none";
       }
     };
     calendar.init();
