@@ -1,7 +1,7 @@
 //===============> 日历组件 <===============
 (function () {
   "use strict";
-  window.calendarTool = function(node, earilest, latest,callBackFn, period) {
+  window.calendarTool = function(node, earilest, latest,callBackFn) {
     // 选择器
     var gId = function(x) { return document.getElementById(x); };
     var $ = function(x){ return document.querySelector(x); };
@@ -25,7 +25,6 @@
     var calendar = {
       earliest: null,
       latest: null,
-      period: false,
       pickDay: new Date(),
       monthLable: ["一月","二月","三月","四月","五月","六月",
         "七月","八月","九月","十月","十一月","十二月"],
@@ -57,15 +56,15 @@
           var dateString = this.dateToString(nextDay);
           //调用日期上限判断函数，设置 illegalDay 的 class
           if (!this.inScope(nextDay, this.earliest, this.latest)) {
-            insert += "<div class='illegalDay' data-date='" + dateString + "'>" +
+            insert += "<div data-date='" + dateString + "' class='illegalDay'>" +
               nextDay.getDate() + "</div>";
           // 设置面板内非当月的日期
           } else if (nextDay.getMonth() !== this.pickDay.getMonth()) {
-            insert += "<div class='otherMonth' data-date='" + dateString + "'>" +
+            insert += "<div data-date='" + dateString + "' class='otherMonth'>" +
               nextDay.getDate() + "</div>";
           // 高亮选中的日期
           } else if(this.dateToString(this.pickDay) === dateString) {
-            insert += "<div class='pickDay' data-date='" + dateString + "'>" +
+            insert += "<div data-date='" + dateString + "' class='pickDay'>" +
               nextDay.getDate() + "</div>";
           } else {
             insert += "<div data-date='" + dateString + "'>" + nextDay.getDate() + "</div>";
@@ -138,6 +137,7 @@
             var timer = setTimeout(function() {
               gId('calendarPanel').style.display = "none";
             }, 500);
+            self.callBack();
           }
         });
 
@@ -187,7 +187,12 @@
         // 点击输入框显示/隐藏日历面板
         addEvent(gId('dateInput'), 'click', function() {
           var calendar = document.getElementById('calendarPanel');
+          var input = gId("dateInput");
           if ( calendar.style.display === "") {
+            if (!self.inScope(input.value, self.earliest, self.latest)) {
+              alert("超出日期选择范围了。");
+              return;
+            }
             calendar.style.display = "none";
           } else {
             calendar.style.display = "";
@@ -224,7 +229,6 @@
         if (earliest) { this.earliest = earliest; }
         if (latest) { this.latest = latest; }
         if (callBack) { this.callBack = callBack; }
-        if (period) { this.period = period; }
         this.showTheMonth();
         gId('calendarPanel').style.display = "none";
       }

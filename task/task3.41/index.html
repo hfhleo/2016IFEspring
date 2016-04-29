@@ -21,9 +21,16 @@
   background-color: darkorange;
 }
 
+#chooseBtn {
+  margin: 0;
+  line-height: 30px;
+  padding: 0;
+  cursor: pointer;
+}
 #calendar span { margin-left: 10px; }
 
-#lastMonth, #nextMonth {
+#lastMonth, #nextMonth,
+#lastYear, #nextYear {
   position: relative;
   margin: 12px 10px;
   height: 0;
@@ -35,11 +42,11 @@
   cursor: pointer;
 }
 
-#nextMonth { border-color: transparent transparent transparent white; } 
+#nextMonth, #nextYear { border-color: transparent transparent transparent white; } 
 
 #calendar p { padding: 5px; }
 
-#calendar div {
+#pickDay div {
   height: 30px;
   width: 39px;
   line-height: 30px;
@@ -48,7 +55,8 @@
   border-bottom: 1px solid #eee;
 }
 
-#calendar div:hover {
+#pickDay div:hover,
+#pickYear div:hover {
   background-color: #bceaf7;
 }
 
@@ -64,6 +72,27 @@
 #calendar > p {
   font-size: 14px;
   color: #bbb;
+}
+
+#pickYear header {
+  height: 30px;
+  width: 100%;
+  background-color: #ccc;
+  color: black;
+}
+
+#pickYear header > * { margin: 8px; }
+
+#pickYear h3 { line-height: 20px; }
+
+#pickYear div {
+  height: 50px;
+  width: 69px;
+  line-height: 50px;
+  font-size: 14px;
+  text-align: center;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
 }
 </style>
 </head>
