@@ -27,6 +27,7 @@ var aqiData = [
 
 (function () {
     // 选取污染大于60的城市
+<<<<<<< Updated upstream
     var aqiOver = aqiData.filter( function(x) {
         return x[1] > 60;
     });
@@ -35,10 +36,23 @@ var aqiData = [
     aqiOver.sort(function(a, b) { 
         return b[1] - a[1]; 
     });
+=======
+    var aqiOver = [];
+    for ( var i = 0; i < aqiData.length; i++) {
+        var aqiValue = aqiData[i][1]
+        if ( aqiValue > 60 ) {
+            aqiOver.push(aqiData[i]);  
+        }
+    }
+
+    // 按从大到小排序
+    aqiOver.sort(function(a, b) { return b[1] - a[1]; });
+>>>>>>> Stashed changes
 
     // 显示结果
     var check = document.getElementById("check");   
     check.onclick = function() {
+<<<<<<< Updated upstream
         var fragment = document.createDocumentFragment();
         var sortNum = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"];
         for ( var i = 0; i < aqiOver.length; i++) {
@@ -49,6 +63,16 @@ var aqiData = [
         document.getElementById("aqi-list").innerHTML = "";
         document.getElementById("aqi-list").appendChild(fragment);
     }
+=======
+        var sortNum = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"]
+        for ( var i = 0; i < aqiOver.length; i++) {
+            var node = document.createElement("li");
+            node.innerHTML = "第" + sortNum[i] + "名：" + aqiOver[i][0] + "，" + aqiOver[i][1];
+            document.getElementById("aqi-list").appendChild(node);
+        }
+    }
+    // console.log(aqiOver);
+>>>>>>> Stashed changes
 
 })();
 
