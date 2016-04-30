@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="UTF-8">
+<title>百度学院任务3.42</title>
+<link rel="stylesheet" href="calendarStyle.css">
+</head>
+
+<body>
+<h2>日历1（时段模式）</h2>
+<article id="calendar1"></article>
+<h2>日历2（单选模式）</h2>
+<article id="calendar2"></article>
+<script src="calendar.js"></script>
+<script>
+//===============> 日历组件数据接口 <===============
+var chooseScope = [new Date('2014-01-01'), new Date()];
+var callBack = function() {
+  alert('我已回调，请主人放心。');
+};
+var period = [5, 10];
+calendarTool('#calendar1', chooseScope, callBack, period);
+calendarTool('#calendar2', null, callBack, null);
+
+</script>
+</body>
+
+</html>
+
+
