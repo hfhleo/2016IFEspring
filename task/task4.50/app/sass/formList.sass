@@ -1,0 +1,70 @@
+@import 'base.sass'
+
+.formList
+  @include shadowbox
+  border-bottom-left-radius: 8px
+  border-bottom-right-radius: 8px
+  padding-bottom: 44px
+  table
+    table-layout: fixed
+    tr
+      height: 56px
+      font-size: 16px
+      line-height: 56px
+      border-top: 1px solid #acacac
+      background-color: white
+      td
+        div
+          width: 350px
+          white-space: nowrap
+          overflow: hidden
+          text-overflow: ellipsis
+        button
+          @include whiteBtn(66px, 24px)
+          margin-left: 6px
+        input[type='checkbox']
+          display: none
+        input[type="checkbox"] + label::before
+          display: inline-block
+          margin-left: 26px
+          content: ''
+          width: 20px
+          height: 20px
+          vertical-align: middle
+          /* 设置unchecked 的样式*/
+          background: url("../img/checkboxOff.png") left top no-repeat
+          cursor: pointer
+        input[type="checkbox"]:checked + label::before
+          background: url('../img/checkboxOn.png') left top no-repeat
+        span.published
+          color: $base-theme
+          font-weight: bolder
+      td:nth-child(3)
+        font-size: 14px
+      td:nth-child(5)
+        height: 56px
+        display: flex
+        justify-content: center
+        align-items: center
+      th:nth-child(1)
+        width: 72px
+      th:nth-child(2)
+        width: 376px
+      th:nth-child(3)
+        width: 164px
+      th:nth-child(4)
+        width: 112px
+      th:nth-child(5)
+        width: 317px
+    tr:hover
+      background-color: $base-hover
+    tr:nth-child(1)
+      border: none
+      background-color: #f9f9f9
+      button
+        @include colorBtn(98px, 28px)
+        float: right
+        margin: 15px 40px
+    tr:nth-child(2)
+      border-top: 1px solid #acacac
+

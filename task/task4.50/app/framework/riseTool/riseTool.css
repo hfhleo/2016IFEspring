@@ -1,0 +1,56 @@
+.riseTool {
+  position: fixed;
+  box-sizing: border-box;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(100, 100, 100, 0.7);
+  z-index: 800;
+  border: none;
+}
+.riseTool article {
+  position: relative;
+  padding: 0;
+  width: 38%;
+  font-size: 18px;
+  color: #979797;
+  border-radius: 4px;
+}
+.riseTool article header {
+  height: 46px;
+  background-color: #f7f7f7;
+  padding: 0 27px;
+  border: none;
+}
+.riseTool article header h3 {
+  margin: 0;
+  line-height: 46px;
+}
+.riseTool article section {
+  background-color: white;
+  padding: 28px 20px 20px 28px;
+  border: none;
+}
+.riseTool article section p {
+  min-height: 100px;
+}
+.riseTool article section div {
+  display: flex;
+  justify-content: center;
+  border: none;
+}
+.riseTool article section div button {
+  width: 70px;
+  height: 26px;
+  margin: 0 4px;
+  border: 1px solid #979797;
+  border-radius: 3px;
+}
+.riseTool article section div button:focus {
+  background-color: #f07600;
+  color: white;
+}
+
+/*# sourceMappingURL=riseTool.css.map */

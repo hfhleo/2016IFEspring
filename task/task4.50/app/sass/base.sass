@@ -1,0 +1,61 @@
+$base-theme: #ee7d19
+$base-hover: #fcf0e5
+$base-font: #666666
+$base-grey:  #eeeeee
+
+@mixin shadowbox
+  position: relative
+  width: 1042px
+  margin: 68px auto 150px auto
+  border: 1px solid #e2e2e2
+  background-color: white
+  box-shadow: 0px 2px 5px #a2a2a2
+  color: $base-font
+
+@mixin colorBtn($width, $height)
+  width: $width
+  height: $height
+  vertical-align: middle
+  font-size: $height / 2
+  line-height: $height
+  color: white
+  background-color: $base-theme
+  border: 1px solid $base-theme - #222222
+  cursor: pointer
+  &::before
+    display: inline-block
+    margin-right: $height / 4
+    padding-bottom: 3px
+    content: "+"
+    font-family: Arial
+    vertical-align: middle
+    line-height: $height
+    font-size: $height
+    font-weight: lighter
+  &:hover
+    background-color: $base-theme + #111111
+
+@mixin whiteBtn($width, $height)
+  width: $width
+  height: $height
+  vertical-align: middle
+  font-size: $height * .6
+  color: $base-font
+  background-color: transparent
+  border: 1px solid $base-font
+  border-radius: 2px
+  &:hover
+    background-color: $base-theme
+    color: white
+    border-color: $base-theme - #222222
+
+@mixin arrows($fontSize, $color)
+  &:before
+    content: ''
+    display: inline-block
+    width: $fontSize * .6
+    height: $fontSize * .6
+    border: 2px solid $color
+    border-color: transparent transparent $color $color
+    -webkit-transform: rotate(45deg)
+    transform: rotate(45deg)

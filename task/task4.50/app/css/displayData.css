@@ -1,0 +1,169 @@
+.displayData {
+  position: relative;
+  width: 1042px;
+  margin: 68px auto 150px auto;
+  border: 1px solid #e2e2e2;
+  background-color: white;
+  box-shadow: 0px 2px 5px #a2a2a2;
+  color: #666666;
+  padding: 0 40px;
+}
+.displayData header {
+  position: relative;
+  padding: 42px 50px 5px 50px;
+  border-bottom: 2px sold #ccc;
+  text-align: center;
+}
+.displayData header h3 {
+  font-size: 22px;
+}
+.displayData header h4 {
+  margin-top: 10px;
+  font-size: 16px;
+}
+.displayData header button {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  font-size: 16px;
+  border: none;
+  background-color: transparent;
+}
+.displayData header button:before {
+  content: "";
+  display: inline-block;
+  width: 9.6px;
+  height: 9.6px;
+  border: 2px solid #666666;
+  border-color: transparent transparent #666666 #666666;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.displayData header button:hover {
+  text-shadow: -2px 2px 3px #ccc;
+}
+.displayData article {
+  padding: 10px 22px;
+}
+.displayData article h3 {
+  width: 530px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.displayData article div {
+  margin: 12px auto;
+  padding: 6px 24px 12px 24px;
+  line-height: 34px;
+  border: 2px solid #ccc;
+}
+.displayData article div div {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.displayData article div .question {
+  float: left;
+}
+.displayData article div .question span {
+  margin-left: 1em;
+}
+.displayData article div .question li {
+  margin-left: 2.5em;
+  width: 480px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.displayData article div .ratio {
+  margin-left: 550px;
+}
+.displayData article div .ratio .bar {
+  position: relative;
+  line-height: 34px;
+}
+.displayData article div .ratio .bar .bar-unfill {
+  position: relative;
+  display: inline-block;
+  width: 234px;
+  height: 12px;
+  border: 1px solid #ccc;
+}
+.displayData article div .ratio .bar .bar-unfill .bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10px;
+}
+.displayData article div .ratio .bar .bar-unfill .bar-fill .bar-ani {
+  width: 100%;
+  height: 10px;
+  background-color: #ee7d19;
+  animation: progressbar 1s;
+  -webkit-animation: progressbar 1s;
+}
+@-webkit-keyframes progressbar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes progressbar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+.displayData article div .ratio .bar-data {
+  position: absolute;
+  top: 0;
+  right: 40px;
+  line-height: 34px;
+  color: #aaa;
+}
+.displayData footer {
+  border-top: 2px solid #ccc;
+}
+.displayData footer button {
+  width: 97px;
+  height: 26px;
+  vertical-align: middle;
+  font-size: 13px;
+  line-height: 26px;
+  color: white;
+  background-color: #ee7d19;
+  border: 1px solid #cc5b00;
+  cursor: pointer;
+  display: block;
+  margin: 40px auto 70px auto;
+}
+.displayData footer button::before {
+  display: inline-block;
+  margin-right: 6.5px;
+  padding-bottom: 3px;
+  content: "+";
+  font-family: Arial;
+  vertical-align: middle;
+  line-height: 26px;
+  font-size: 26px;
+  font-weight: lighter;
+}
+.displayData footer button:hover {
+  background-color: #ff8e2a;
+}
+.displayData footer button:before {
+  content: "";
+  display: inline-block;
+  width: 8.4px;
+  height: 8.4px;
+  border: 2px solid white;
+  border-color: transparent transparent white white;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/*# sourceMappingURL=displayData.css.map */

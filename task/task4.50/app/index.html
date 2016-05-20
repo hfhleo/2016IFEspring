@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="UTF-8">
+<meta name='viewport' content='width=device-width, initial-scale=1 user-scalable=yes'>
+
+<!-- CSS -->
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/formList.css">
+<link rel="stylesheet" href="css/newForm.css">
+<link rel="stylesheet" href="css/editPage.css">
+<link rel="stylesheet" href="css/displayData.css">
+<link rel="stylesheet" href="css/surveyForm.css">
+<link rel="stylesheet" href="css/thankyou.css">
+<link rel="stylesheet" href="framework/riseTool/riseTool.css">
+<link rel="stylesheet" href="framework/calendarTool/calendar.css">
+
+<!-- JS -->
+<script src="framework/angular.min.js"></script>
+<script src="framework/angular-ui-router.min.js"></script>
+<script src="framework/angular-animate.min.js"></script>
+<script src="app.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/formList.js"></script>
+<script src="js/editPage.js"></script>
+<script src="js/circle.js"></script>
+<script src="js/displayData.js"></script>
+<script src="js/surveyForm.js"></script>
+<script src="js/thankyou.js"></script>
+<script src="framework/riseTool/riseTool.js"></script>
+<script src="framework/calendarTool/calendar.js"></script>
+<script src="framework/pieChart/pieChart.js"></script>
+
+<title>百度前端任务4.50</title>
+</head>
+
+<body ng-app="questionnaire" ng-controller="appCtrl">
+
+<header ui-view="topBar"></header>
+<main ui-view="content"></main>
+
+</body>
+
+</html>
+
+
