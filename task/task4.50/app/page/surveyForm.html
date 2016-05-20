@@ -1,0 +1,7 @@
+<div class="survey" ng-app="surveyCtrl" ng-controller="surveyController">
+  <surveyHeader></surveyHeader>
+  <surveyContent>
+    <surveyQuestion ng-repeat="oneQuestion in form.content"></surveyQuestion>
+  </surveyContent>
+  <surveyFooter></surveyFooter>
+</div>

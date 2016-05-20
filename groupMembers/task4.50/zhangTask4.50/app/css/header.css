@@ -1,0 +1,44 @@
+@charset "UTF-8";
+html {
+  overflow-x: auto;
+  font-family: Tahoma, Arial, ”Helvetica Neue“, ”Hiragino Sans GB”, Simsun, sans-self;
+}
+
+body {
+  color: #666666;
+  background-color: #efefef;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  height: 46px;
+  width: 100%;
+  color: white;
+  background-color: #ee7d19;
+}
+.header a {
+  color: white;
+}
+.header h1 {
+  margin-left: 80px;
+  padding-left: 30px;
+  font-size: 22px;
+  line-height: 46px;
+  background: url("../img/logo.png") center left no-repeat;
+}
+.header ul {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 76px;
+}
+.header ul li {
+  margin-right: 30px;
+  line-height: 46px;
+}
+
+main {
+  display: block;
+}
+
+/*# sourceMappingURL=header.css.map */

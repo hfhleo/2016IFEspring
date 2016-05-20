@@ -1,0 +1,129 @@
+@charset "UTF-8";
+.formList {
+  position: relative;
+  width: 1042px;
+  margin: 68px auto 150px auto;
+  border: 1px solid #e2e2e2;
+  background-color: white;
+  box-shadow: 0px 2px 5px #a2a2a2;
+  color: #666666;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding-bottom: 44px;
+}
+.formList table {
+  table-layout: fixed;
+}
+.formList table tr {
+  height: 56px;
+  font-size: 16px;
+  line-height: 56px;
+  border-top: 1px solid #acacac;
+  background-color: white;
+}
+.formList table tr td div {
+  width: 350px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.formList table tr td button {
+  width: 66px;
+  height: 24px;
+  vertical-align: middle;
+  font-size: 14.4px;
+  color: #666666;
+  background-color: transparent;
+  border: 1px solid #666666;
+  border-radius: 2px;
+  margin-left: 6px;
+}
+.formList table tr td button:hover {
+  background-color: #ee7d19;
+  color: white;
+  border-color: #cc5b00;
+}
+.formList table tr td input[type='checkbox'] {
+  display: none;
+}
+.formList table tr td input[type="checkbox"] + label::before {
+  display: inline-block;
+  margin-left: 26px;
+  content: "";
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  /* 设置unchecked 的样式 */
+  background: url("../img/checkboxOff.png") left top no-repeat;
+  cursor: pointer;
+}
+.formList table tr td input[type="checkbox"]:checked + label::before {
+  background: url("../img/checkboxOn.png") left top no-repeat;
+}
+.formList table tr td span.published {
+  color: #ee7d19;
+  font-weight: bolder;
+}
+.formList table tr td:nth-child(3) {
+  font-size: 14px;
+}
+.formList table tr td:nth-child(5) {
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.formList table tr th:nth-child(1) {
+  width: 72px;
+}
+.formList table tr th:nth-child(2) {
+  width: 376px;
+}
+.formList table tr th:nth-child(3) {
+  width: 164px;
+}
+.formList table tr th:nth-child(4) {
+  width: 112px;
+}
+.formList table tr th:nth-child(5) {
+  width: 317px;
+}
+.formList table tr:hover {
+  background-color: #fcf0e5;
+}
+.formList table tr:nth-child(1) {
+  border: none;
+  background-color: #f9f9f9;
+}
+.formList table tr:nth-child(1) button {
+  width: 98px;
+  height: 28px;
+  vertical-align: middle;
+  font-size: 14px;
+  line-height: 28px;
+  color: white;
+  background-color: #ee7d19;
+  border: 1px solid #cc5b00;
+  cursor: pointer;
+  float: right;
+  margin: 15px 40px;
+}
+.formList table tr:nth-child(1) button::before {
+  display: inline-block;
+  margin-right: 7px;
+  padding-bottom: 3px;
+  content: "+";
+  font-family: Arial;
+  vertical-align: middle;
+  line-height: 28px;
+  font-size: 28px;
+  font-weight: lighter;
+}
+.formList table tr:nth-child(1) button:hover {
+  background-color: #ff8e2a;
+}
+.formList table tr:nth-child(2) {
+  border-top: 1px solid #acacac;
+}
+
+/*# sourceMappingURL=formList.css.map */

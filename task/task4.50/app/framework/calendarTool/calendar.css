@@ -1,0 +1,142 @@
+#calendarPanel {
+  position: absolute;
+  top: 85px;
+  margin-bottom: 120px;
+  border: 1px solid #ddd;
+  width: 282px;
+  background-color: white;
+  box-shadow: 0 2px 3px lightgrey;
+}
+#calendarPanel::before {
+  position: absolute;
+  content: "";
+  margin: 0;
+  width: 0;
+  height: 0;
+  top: -10px;
+  left: 132px;
+  border-style: solid;
+  border-color: transparent transparent #ee7d19 transparent;
+  border-width: 0 6px 10px 6px;
+  background-color: transparent;
+}
+#calendarPanel header {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  padding: 0;
+  line-height: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: white;
+  background-color: #ee7d19;
+  border: none;
+}
+#calendarPanel header h3 {
+  margin: 0;
+  line-height: 40px;
+  padding: 0 4px;
+  cursor: pointer;
+}
+#calendarPanel header h3 span {
+  margin-left: 10px;
+}
+#calendarPanel header input {
+  position: relative;
+  margin: 12px 10px;
+  width: 0;
+  height: 0;
+  padding: 0;
+  border-style: solid;
+  border-color: transparent white transparent transparent;
+  border-width: 8px;
+  background-color: transparent;
+  cursor: pointer;
+}
+#calendarPanel header input:last-child {
+  border-color: transparent transparent transparent white;
+}
+#calendarPanel header p {
+  width: 40px;
+  color: white;
+  line-height: 40px;
+}
+#calendarPanel section:first-of-type div {
+  height: 30px;
+  width: 40px;
+  line-height: 30px;
+  text-align: center;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+#calendarPanel section:first-of-type div:hover {
+  color: black;
+  background-color: #bceaf7;
+}
+#calendarPanel section:first-of-type .otherMonth {
+  color: #ddd;
+}
+#calendarPanel section:first-of-type .pickDay {
+  color: white;
+  background-color: darkorange;
+}
+#calendarPanel section:first-of-type .amongPick {
+  background-color: #ffe2b2;
+}
+#calendarPanel section:first-of-type .illegalDay {
+  background-color: #eee;
+  color: black;
+}
+#calendarPanel section:first-of-type .today {
+  background-color: #ffe2b2;
+}
+#calendarPanel p {
+  font-size: 14px;
+  color: #bbb;
+}
+#calendarPanel section:last-of-type header {
+  height: 30px;
+  width: 100%;
+  background-color: #ccc;
+  color: black;
+  margin: 0;
+  cursor: auto;
+}
+#calendarPanel section:last-of-type input {
+  margin: 6px 10px;
+}
+#calendarPanel section:last-of-type h3 {
+  line-height: 30px;
+  font-size: 13px;
+}
+#calendarPanel section:last-of-type div {
+  height: 50px;
+  width: 70px;
+  line-height: 50px;
+  font-size: 14px;
+  text-align: center;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+#calendarPanel section:last-of-type div:hover {
+  background-color: #eee;
+}
+#calendarPanel footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+}
+#calendarPanel footer button {
+  flex: 1 1 auto;
+  margin: 0;
+  padding: 5px;
+  background-color: transparent;
+  border: 1px solid darkorange;
+  cursor: pointer;
+}
+#calendarPanel footer button:hover {
+  background-color: #ffe2b2;
+  color: black;
+}
+
+/*# sourceMappingURL=calendar.css.map */

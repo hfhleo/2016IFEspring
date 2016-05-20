@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,SAAS;EACP,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;EACnB,gBAAgB,ECRL,OAAO;;ADSlB,YAAE;EACA,QAAQ,EAAE,QAAQ;EAClB,KAAK,EAAE,KAAK;EACZ,SAAS,EAAE,IAAI;EACf,UAAU,EAAE,MAAM",
+"sources": ["../sass/thankyou.sass","../sass/base.sass"],
+"names": [],
+"file": "thankyou.css"
+}

@@ -1,0 +1,121 @@
+article[id^="calendar"] {
+  position: absolute;
+  top: 40px;
+  border: 1px solid #ddd;
+  width: 275px;
+  background-color: white;
+}
+
+article[id^="calendar"] header {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  padding: 0;
+  line-height: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: white;
+  background-color: darkorange;
+}
+
+article[id^="calendar"] header h3 {
+  margin: 0;
+  line-height: 40px;
+  padding: 0 4px;
+  cursor: pointer;
+}
+
+article[id^="calendar"] span { margin-left: 10px; }
+
+article[id^="calendar"] header input {
+  position: relative;
+  margin: 12px 10px;
+  width: 0;
+  height: 0;
+  padding: 0;
+  border-style: solid;
+  border-color: transparent white transparent transparent;
+  border-width: 8px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+article[id^="calendar"] header input:last-child {
+  border-color: transparent transparent transparent white; 
+} 
+
+article[id^="calendar"] header p {
+  width: 40px;
+  line-height: 40px;
+}
+
+article[id^="calendar"] section:first-of-type > div {
+  height: 30px;
+  width: 39px;
+  line-height: 30px;
+  text-align: center;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+article[id^="calendar"] section > div:hover {
+  color: black;
+  background-color: #bceaf7;
+}
+
+.otherMonth { color: #ddd; }
+
+.pickDay { 
+  color: white;
+  background-color: darkorange; 
+}
+.amongPick { background-color: #ffe2b2; }
+
+.illegalDay {
+  background-color: #eee;
+  color: black;
+}
+
+article[id^="calendar"] > p {
+  font-size: 14px;
+  color: #bbb;
+}
+
+article[id^="calendar"] section:last-of-type header {
+  height: 30px;
+  width: 100%;
+  background-color: #ccc;
+  color: black;
+}
+
+article[id^="calendar"] section:last-of-type header > * { margin: 8px; }
+
+article[id^="calendar"] section:last-of-type h3 { line-height: 20px; }
+
+article[id^="calendar"] section:last-of-type div {
+  height: 50px;
+  width: 69px;
+  line-height: 50px;
+  font-size: 14px;
+  text-align: center;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+article[id^="calendar"] > article > footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+article[id^="calendar"] > article > footer button {
+  flex: 1 1 auto;
+  margin: 0;
+  padding: 5px;
+  background-color: transparent;
+  border: 1px solid darkorange;
+  cursor: pointer;
+}
+
+article[id^="calendar"] > article > footer button:hover {
+  background-color: #ffe2b2;
+}
