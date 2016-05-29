@@ -3,26 +3,57 @@
 
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="riseTool.css">
 <title>百度前端任务3.37</title>
+<style>
+html {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+body {
+  height: 100%;
+  background: url(http://himg2.huanqiu.com/attachment2010/2013/0806/20130806022803957.jpg) center center /cover no-repeat;
+}
+
+[id^="star"] {
+  display: block;
+  margin: 100px auto 0 auto;
+  padding: 5px;
+  font-size: 25px;
+}
+</style>
 </head>
 
 <body>
 <button id="start">显示一个浮出层</button>
-<div id="rise">
-  <article class="prompt" id="prompt">
-    <header id="promptHeader" draggable="true">
-      <h3>这是一个浮出层</h3>
-    </header>
-    <section>
-      <p>这是一个浮出层</p>
-      <button id="riseConfirm">确定</button>
-      <button id="riseCancel">取消</button>
-    </section>
-  </article>
-</div>
+<button id="start2">Display a float window</button>
 
 <script src="task.js"></script>
+<script>
+
+document.getElementById('start').onclick = function() {
+  var riseObject = {
+    node: "#start",
+    title: "这里是弹窗的标题",
+    body: "这里是弹窗的内容",
+    yes: "确认",
+    no: "取消"
+  };
+  riseTool(riseObject);
+};
+
+document.getElementById('start2').onclick = function() {
+  var riseObject = {
+    node: "#start",
+    title: "The title is here",
+    body: "The content is here",
+    yes: "Yes",
+    no: "No"
+  };
+  riseTool(riseObject);
+};
+</script>
 </body>
 
 </html>
