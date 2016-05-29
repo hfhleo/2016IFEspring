@@ -4,50 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <title>百度前端任务3.38</title>
-<style>
-.table, th, td {
-  padding: 8px;
-  text-align: center;
-  font-size: 18px;
-  border: 1px solid #ddd;
-  border-collapse: collapse;
-}
-
-th {
-  position: relative;
-  width: 100px;
-  height: 25px;
-  color: white;
-  background-color: black;
-}
-
-.table .toLarge {
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  width: 0;
-  height: 0;
-  padding: 0;
-  background-color: transparent;
-  border-color: transparent transparent white transparent;
-  border-width: 0 5px 7px 5px;
-  border-style: solid;
-}
-
-.table .toSmall {
-  position: absolute;
-  top: 24px;
-  right: 14px;
-  width: 0;
-  height: 0;
-  padding: 0;
-  background-color: transparent;
-  border-color: white transparent transparent transparent;
-  border-width: 7px 5px 0 5px;
-  border-style: solid;
-}
-
-</style>
+<link rel="stylesheet" href="tableTool.css">
 </head>
 
 <body>
@@ -56,6 +13,87 @@ th {
 <h3>表格2</h3>
 <div id="createTable2"></div>
 <script src="task.js"></script>
+<script>
+// 表格1
+var tableTitle = [
+  {label: "姓名", name: "name" , sort: false},
+  {label: "语文", name: "chinese" , sort: true},
+  {label: "数学", name: "math" , sort: true},
+  {label: "英语", name: "english", sort: true},
+  {label: "总分", name: "sum", sort: true}
+];
+var tableData = {
+  xiaoMing: {
+    name: "小明",
+    chinese: 80,
+    math: 90,
+    english: 70,
+    sum: 240,
+    },
+  xiaoHong: {
+    name: "小红",
+    chinese: 90,
+    math: 60,
+    english: 90,
+    sum: 240,
+    },
+  xiaoLiang: {
+    name: "小亮",
+    chinese: 60,
+    math: 100,
+    english: 70,
+    sum: 230,
+    },
+  xiaoBuDian: {
+    name: "小不点",
+    chinese: 65,
+    math: 75,
+    english: 95,
+    sum: 235,
+    },
+};
+createTable('#createTable1', tableTitle, tableData);
+
+// 表格2
+var tableTitle = [
+  {label: "姓名", name: "name" , sort: false},
+  {label: "英语", name: "english", sort: true},
+  {label: "数学", name: "math" , sort: true},
+  {label: "语文", name: "chinese" , sort: true},
+  {label: "总分", name: "sum", sort: false},
+];
+var tableData = {
+  xiaoMing: {
+    name: "明明",
+    chinese: 80,
+    math: 90,
+    english: 70,
+    sum: 240,
+    },
+  xiaoHong: {
+    name: "红红",
+    chinese: 90,
+    math: 60,
+    english: 90,
+    sum: 240,
+    },
+  xiaoLiang: {
+    name: "亮亮",
+    chinese: 60,
+    math: 100,
+    english: 70,
+    sum: 230,
+    },
+  xiaoBuDian: {
+    name: "点点",
+    chinese: 65,
+    math: 75,
+    english: 95,
+    sum: 235,
+    },
+};
+createTable('#createTable2', tableTitle, tableData);
+</script>
 </body>
 
 </html>
