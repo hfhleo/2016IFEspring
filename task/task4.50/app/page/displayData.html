@@ -1,10 +1,53 @@
 <div class="displayData" ng-app="displayDataCtrl" ng-controller="displayDataController">
-  <dataHeader></dataHeader>
-  <dataContent>
-    <dataQuestion ng-repeat="oneQuestion in form.content"></dataQuestion>
-  </dataContent>
-  <dataFooter></dataFooter>
+  <header> 
+    <h3 ng-bind='form.title'></h3> 
+    <h4>此统计分析只包含完整回收的数据</h4> 
+    <button ui-sref='formList'>返回</button> 
+  </header>
+  <article>
+    <div ng-repeat="oneQuestion in form.content"> 
+      <div class='question'> 
+        <h3>Q{{$index + 1}}<span ng-bind='oneQuestion.question'></span></h3> 
+        <!-- text:radio || checkbox -->
+        <ul ng-if="oneQuestion.type !== 'textarea'"> 
+          <li ng-repeat='oneOption in oneQuestion.options'> 
+            <div>{{oneOption.option}}</div> 
+          </li> 
+        </ul> 
+      </div> 
+
+      <!-- chart:radio -->
+      <div class='ratio' ng-if="oneQuestion.type === 'radio'"> 
+        <h3>数据占比</h3> 
+        <canvas id='canvas{{$index}}'> 
+          您的浏览器版本过低，请使用更高的版本打开此页面。 
+        </canvas> 
+        <draw-Pie></draw-Pie>
+      </div> 
+      <!-- chart:checkbox -->
+      <div class='ratio' ng-if="oneQuestion.type === 'checkbox'"> 
+        <h3>数据占比</h3> 
+        <div class='bar' ng-repeat='oneOption in oneQuestion.options'> 
+          <div class='bar-unfill'> 
+            <div class='bar-fill' style='width:{{(oneOption.number / oneQuestion.sumNumber) | percent}}'> 
+              <div class='bar-ani'></div> 
+            </div> 
+          </div> 
+          <div class='bar-data'>{{(oneOption.number / oneQuestion.sumNumber) | percent}}</div>  
+        </div> 
+      </div> 
+      <!-- chart:textarea -->
+      <div class='ratio' ng-if="oneQuestion.type ==='textarea'"> 
+        <h3>有效回答占比</h3> 
+        <div class='bar'> 
+          <div class='bar-unfill'> 
+            <div class='bar-fill' style='width:{{(oneQuestion.number / oneQuestion.sumNumber) | percent}}'><div class='bar-ani'></div></div> 
+          </div> 
+          <div class='bar-data'>{{(oneQuestion.number / oneQuestion.sumNumber) | percent}}</div> 
+        </div> 
+    </div>
+  </article>
+  <footer> 
+    <button ui-sref='formList'>返回</button> 
+  </footer>
 </div>
-
-
-

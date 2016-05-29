@@ -1,7 +1,36 @@
 <div class="formList" ng-app="formListCtrl" ng-controller="formListController">
-  <listTable>
-    <tableHeader></tableHeader>
-    <tableContent ng-repeat="form in forms"></tableContent>
-    <tableFooter selectAllBtn='selectAllBtn'></tableFooter>
-  </listTable>
+  <table>
+    <tr>
+      <th></th>
+      <th>标题</th>
+      <th>截止时间</th>
+      <th>状态</th>
+      <th>操作 
+        <a ui-sref='newForm'><button>新建问卷</button></a>
+      </th>
+    </tr>
+    <tr ng-repeat="form in forms"> 
+      <td> 
+        <input type='checkbox' id='list{{$index}}' ng-model='form.select'> 
+        <label for='list{{$index}}'>&ensp;</label> 
+      </td> 
+      <td><div>{{form.title}}</div></td> 
+      <td>{{form.date}}</td> 
+      <td> 
+        <span ng-class='form.status'>{{display(form.status)}}</span> 
+      </td> 
+      <td> 
+        <button ng-click='editForm($index)'>编辑</button> 
+        <button ng-click='deleteForm($index)'>删除</button> 
+        <button ng-if="form.status !== 'unpublish'" ng-click='displayForm($index)'>查看数据</button> 
+        <button ng-if="form.status === 'unpublish'" ng-click='surveyForm($index)'>查看问卷</button> 
+      </td> 
+    </tr>
+    <tr> 
+      <td colspan='5'> 
+        <input type='checkbox' id='listAll' ng-model='selectAllBtn' ng-change='selectAllFunc({{selectAllBtn}})'><label for='listAll' class='listAll'>全选</label> 
+        <button ng-click='deleteSomeForm()' class='delAll'>删除</button> 
+      </td> 
+    </tr>
+  </table>
 </div>

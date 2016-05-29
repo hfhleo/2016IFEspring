@@ -51,13 +51,23 @@ questionnaire.config(function($stateProvider) {
     });
 });
 
-questionnaire.controller('appCtrl', ['$rootScope', '$scope', '$http', function($rootScope, $scope, $http) {
+questionnaire.controller('appCtrl', ['$rootScope', '$scope', '$http', 'locals', function($rootScope, $scope, $http, locals) {
   // 请求数据，返回到$rootScope
   $http({
     method: 'GET',
     url: 'dummyData.json'
   }).then(function successCallback(response) {
-    $rootScope.forms = response.data.forms;
+    if(typeof(Storage) !== undefined) {
+      console.log(locals.getObject('forms'));
+      if (locals.getObject('forms') !== undefined) {
+        $rootScope.forms = locals.getObject('forms');
+      } else {
+        $rootScope.forms = response.data.forms;
+        locals.setObject('forms', $rootScope.forms);
+      }
+    } else {
+    }
   }, function errorCallback(response) {
   });
 }]);
+
