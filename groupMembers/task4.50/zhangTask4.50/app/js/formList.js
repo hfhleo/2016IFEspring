@@ -144,16 +144,6 @@ formListCtrl.controller('formListController',['$rootScope', '$scope', '$location
 }]);
 
 //===============> 指令 <===============
-// directive name need lowercase?
-formListCtrl.directive('listtable', function() {
-  return {
-    restrict: 'AE',
-    replace: true,
-    transclude: true,
-    template: "<table ng-transclude></table>"
-  };
-});
-
 formListCtrl.directive('tableheader', function() {
   return {
     restrict: 'AE',

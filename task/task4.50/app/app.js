@@ -58,6 +58,7 @@ questionnaire.controller('appCtrl', ['$rootScope', '$scope', '$http', 'locals', 
     url: 'dummyData.json'
   }).then(function successCallback(response) {
     if(typeof(Storage) !== undefined) {
+      console.log(locals.getObject('forms'));
       if (locals.getObject('forms') !== undefined) {
         $rootScope.forms = locals.getObject('forms');
       } else {

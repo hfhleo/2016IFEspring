@@ -186,8 +186,38 @@ editPageCtrl.directive('pagecontent', function() {
   };
 });
 
-editPageCtrl.directive('question', function() {
-  return {
+/*
+editPageCtrl.directive('question', function() { return {
+    restrict: 'AE',
+    replace: true,
+    template: 
+      "<div>" +
+        "<h3>Q{{$index + 1}}" +
+          "<input type='text' ng-model='oneQuestion.question'>" +
+          "<button type='button' ng-click='addOption($index)' ng-if='oneQuestion.options' class='blackBtn'>+</button>" +
+        "</h3>" +
+        "<label ng-repeat='option in oneQuestion.options' ng-if='oneQuestion.options'>" +
+          "<input type='{{oneQuestion.type}}' name='{{oneQuestion.question}}'>" +
+          "<input type='text' ng-model='option.option'>" +
+          "<button type='button' ng-click='deleteOption($parent.$parent.$index,$index)' class='blackBtn'>x</button>" +
+          "<button type='button' ng-click='fallOption($parent.$parent.$index,$index)' ng-disabled='$last' ng-class='{blackBtn:(!$last),whiteBtn:($last)}'>&darr;</button>" +
+          "<button type='button' ng-click='riseOption($parent.$parent.$index,$index)' ng-disabled='$first' ng-class='{blackBtn:(!$first),whiteBtn:($first)}'>&uarr;</button>" +
+        "</label>" +
+        "<label class='requreAnswer' ng-if='oneQuestion.options == undefined'>" +
+          "<input type='checkbox' name='Q3require' ng-checked='oneQuestion.require' ng-model='oneQuestion.require'>" +
+        "此题是否必填</label>" +
+        "<textarea ng-if='oneQuestion.options == undefined'></textarea>" +
+        "<div>" +
+          "<button ng-click='moveUp($index)' ng-hide='$first'>上移</button>" +
+          "<button ng-click='moveDown($index)' ng-hide='$last'>下移</button>" +
+          "<button ng-click='copyQuestion($index)'>复用</button>" +
+          "<button ng-click='deleteQuestion($index)'>删除</button>" +
+        "</div>" +
+      "</div>",
+  };
+});
+*/
+editPageCtrl.directive('question', function() { return {
     restrict: 'AE',
     replace: true,
     template: 
