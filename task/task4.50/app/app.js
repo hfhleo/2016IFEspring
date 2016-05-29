@@ -60,7 +60,7 @@ questionnaire.controller('appCtrl', ['$rootScope', '$scope', '$http', 'locals', 
     if(typeof(Storage) !== undefined) {
       console.log(locals.getObject('forms'));
       var localForms = locals.getObject('forms');
-      if (localForms !== undefined || !Array.isArray(localForms)) {
+      if (Array.isArray(localForms)) {
         $rootScope.forms = localForms;
       } else {
         $rootScope.forms = response.data.forms;
