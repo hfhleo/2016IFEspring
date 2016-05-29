@@ -1,0 +1,24 @@
+{
+  "name": "task4.50",
+  "version": "1.0.0",
+  "description": "## 任务目的",
+  "main": "karma.conf.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shanlanmi",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.5"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.5",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-jasmine": "^1.0.2",
+    "karma-read-json": "^1.1.0"
+  }
+}

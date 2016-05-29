@@ -1,8 +1,48 @@
 <div class="editPage" ng-app="editPageCtrl" ng-controller="editPageController">
-  <pageHeader></pageHeader>
-  <pageContent>
-    <question ng-repeat="oneQuestion in form.content"></question>
-  </pageContent>
-  <pageEdit></pageEdit>
-  <pageFooter></pageFooter>
+  <header> 
+    <input type='text' name='title' ng-model='form.title'> 
+  </header>
+  <article class='editPageContent'>
+    <div ng-repeat="oneQuestion in form.content"> 
+      <h3>Q{{$index + 1}} 
+        <input type='text' ng-model='oneQuestion.question'> 
+        <button type='button' ng-click='addOption($index)' ng-if='oneQuestion.options' class='blackBtn'>+</button> 
+      </h3> 
+      <label ng-repeat='option in oneQuestion.options' ng-if='oneQuestion.options'> 
+        <input type='{{oneQuestion.type}}' name='{{oneQuestion.question}}'> 
+        <input type='text' ng-model='option.option'> 
+        <button type='button' ng-click='deleteOption($parent.$parent.$index,$index)' class='blackBtn'>x</button> 
+        <button type='button' ng-click='fallOption($parent.$parent.$index,$index)' ng-disabled='$last' ng-class="{'blackBtn':(!$last),'whiteBtn':($last)}">&darr;</button> 
+        <button type='button' ng-click='riseOption($parent.$parent.$index,$index)' ng-disabled='$first' ng-class="{'blackBtn':(!$first),'whiteBtn':($first)}">&uarr;</button> 
+      </label> 
+      <label class='requreAnswer' ng-if='oneQuestion.options == undefined'> 
+        <input type='checkbox' name='Q3require' ng-checked='oneQuestion.require' ng-model='oneQuestion.require'> 
+      此题是否必填</label> 
+      <textarea ng-if='oneQuestion.options == undefined'></textarea> 
+      <div> 
+        <button ng-click='moveUp($index)' ng-hide='$first'>上移</button> 
+        <button ng-click='moveDown($index)' ng-hide='$last'>下移</button> 
+        <button ng-click='copyQuestion($index)'>复用</button> 
+        <button ng-click='deleteQuestion($index)'>删除</button> 
+      </div> 
+    </div>
+  </article>
+  <article class='editPageAdd'> 
+    <div> 
+      <div ng-class='{dropdown:drop}'> 
+        <button ng-click='addRadio()'>单选</button> 
+        <button ng-click='addCheckbox()'>多选</button> 
+        <button ng-click='addTextarea()'>文本题</button> 
+      </div> 
+      <button ng-click='drop=!drop'>添加问题</button> 
+    </div> 
+  </article>
+  <footer> 
+    <label>问卷截止日期<input type='text' id='calendarTool' ng-model='form.date' readonly ng-click='calendar()'></label> 
+    <article id='calendarPanel' style='display:none'></article> 
+    <button ng-click='saveForm()'>保存问卷</button> 
+    <button ng-click='publishForm()'>发布问卷</button> 
+    <div class='riseTool'></div> 
+  </footer>
 </div>
+

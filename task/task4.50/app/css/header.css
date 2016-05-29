@@ -17,6 +17,11 @@ body {
   color: white;
   background-color: #ee7d19;
 }
+@media screen and (min-device-width: 1025px) {
+  .header {
+    min-width: 1042px;
+  }
+}
 .header a {
   color: white;
 }
