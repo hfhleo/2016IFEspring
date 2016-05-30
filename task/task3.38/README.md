@@ -1,41 +1,46 @@
-## 任务三十八：UI组件之排序表格
-### 重要说明
-
-百度前端技术学院的课程任务是由百度前端工程师专为对前端不同掌握程度的同学设计。我们尽力保证课程内容的质量以及学习难度的合理性，但即使如此，真正决定课程效果的，还是你的每一次思考和实践。
-
-课程多数题目的解决方案都不是唯一的，这和我们在实际工作中的情况也是一致的。因此，我们的要求不仅仅是实现设计稿的效果，更是要多去思考不同的解决方案，评估不同方案的优劣，然后使用在该场景下最优雅的方式去实现。那些最终没有被我们采纳的方案，同样也可以帮助我们学到很多知识。所以，我们列出的参考资料未必是实现需求所必须的。有的时候，实现题目的要求很简单，甚至参考资料里就有，但是背后的思考和亲手去实践却是任务最关键的一部分。在学习这些资料时，要多思考，多提问，多质疑。相信通过和小伙伴们的交流，能让你的学习事半功倍。
-
-### 任务目的
-
-* 练习综合运用HTML、CSS、JavaScript实现局部功能
-* 练习对于代码的抽象与封装
-* 为第四阶段的RIA任务做准备
-
-### 任务描述
-
-* 参考下方设计图，实现一个支持列排序的表格组件
-* 提供生成表格的接口，表格中的数据，表格样式尽量低耦合
-* 可以配置对哪些列支持排序功能，并在表头进行排序按钮的显示，图中的样式为示意参考，可自行设定样式及交互方式
-* 提供点击排序按钮后的响应接口，并提供默认的排序方法，当提供的接口没有具体实现时，按默认的排序方法进行排序操作，并更新表格中的数据显示。
-
-### 任务注意事项
-
-* 请注意代码风格的整齐、优雅
-* 代码中含有必要的注释
-* 可以合理选择使用其它第三方类库，但不建议
-
-### 任务协作建议
-
-* 如果是各自工作，可以按以下方式： 
-  * 团队集中讨论，明确题目要求，保证队伍各自对题目要求认知一致
-  * 各自完成任务实践
-  * 交叉互相Review其他人的代码，建议每个人至少看一个同组队友的代码
-  * 相互讨论，最后合成一份组内最佳代码进行提交
-* 如果是分工工作（推荐），可以按以下模块切分 
-  * 实现表格逻辑
-  * 实现排序相关逻辑
-
-[0]: http://ife.baidu.com/task/all
-[1]: http://ife.baidu.com/note/all
-[2]: http://ife.baidu.com/statistic/index
-[3]: https://openapi.baidu.com/oauth/2.0/authorize?client_id=89XtMi6980UVMb5iMiRAL27g&response_type=code&redirect_uri=http%3A%2F%2Fife.baidu.com%2Flog%2Fin&scope=&state=57734030db393ccb70b0db406b667f42&display=page
+## 表格组件 API
+1. 在 HTML 的 head 标签下加入组件的 js 和 css 文件。
+  ```JavaScript
+  <link rel="stylesheet" href="tableTool.css">
+  <script src="task.js"></script>
+  ```
+1. 在 HTML 中加入带 id 属性的 div 。
+  ```JavaScript
+  <div id="createTable2"></div>
+  ```
+1. 在 js 中调用 table 组件。
+  1. 定义表头,参数为 array
+    内部 object 的参数为{label:表头显示名, name:表头实际含义 sort:是否需要排序(boolean)}
+    ```JavaScript
+    var tableTitle = [
+      {label: "姓名", name: "name" , sort: false},
+      {label: "英语", name: "english", sort: true},
+      {label: "数学", name: "math" , sort: true},
+      {label: "语文", name: "chinese" , sort: true},
+      {label: "总分", name: "sum", sort: false},
+    ];
+    ```
+  1. 定义表格内容
+    内部 object 的参数 key 需要与之前表头参数 name 一一对应
+    ```JavaScript
+    var tableData = {
+      xiaoMing: {
+        name: "明明",
+        chinese: 80,
+        math: 90,
+        english: 70,
+        sum: 240,
+        },
+      xiaoHong: {
+        name: "红红",
+        chinese: 90,
+        math: 60,
+        english: 90,
+        sum: 240,
+        }
+    };
+    ```
+  1. 传入参数，调用表格，参数依次为: id 名(string)，表头(array)，表格内容(Object)
+    ```JavaScript
+    createTable('#createTable2', tableTitle, tableData);
+    ```

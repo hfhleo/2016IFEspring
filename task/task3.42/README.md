@@ -1,42 +1,47 @@
-## 组件之日历组件（三）
+## 日历插件 API
+1. 在 HTML 的 head 标签下加入组件的 js 和 css 文件。
+  ```JavaScript
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="calendar.css">
+  <script src="calendar.js"></script>
+  ```
+1. 在 HTML 中加入带 id 属性的 input，注意需要 readonly 属性。
+  ```JavaScript
+  <input type='text' id='calendar1' readonly>
+  ```
+1. 在 js 中调用 calendar 组件。
+  1. 传入参数，调用日历组件。
+    ```JavaScript
+    document.querySelector('#calendar1').onclick = function() {
+      calendarTool(元素选择器, 日期可选范围, 回调函数, 时段参数);
+    };
+    ```
+  1. 第1个参数为 input 元素的选择器
+    选择器为 string, 可以是id 或 class，但需要唯一名称，遵循 querySelector 语法, 
+    例如：`#idName` 或 `.className`
+  1. 第2个参数为日期可选范围，缺省值为 null。
+    参数类型为 array, 内含可选范围的开始和结束两个 Date ,缺省值为 null。
+    例如：
+    ```JavaScript
+    var chooseScope = [开始日期, 结束日期];
+    var chooseScope = [new Date, new Date('2017-01-01')];
+    ```
+  1. 第3个参数为回调函数，缺省值为 null。
+    例如：
+    ```JavaScript
+    var callBack = function() {
+      console.log('我已回调，请主人放心。');
+    };
+    ```
+  1. 第4个参数为时段参数，缺省值为 null。
+    若时段参数设置为缺省值时，日历组件为日期单选模式，否则为时段选择模式。
+    时段参数类型为 array，内包含最短时段和最长时段两个 Number。
+    例如：
+    ```JavaScript
+    var period = [最少天数, 最多天数];
+    var period = [2, 4];
+    ```
 
-### 重要说明
-
-百度前端技术学院的课程任务是由百度前端工程师专为对前端不同掌握程度的同学设计。我们尽力保证课程内容的质量以及学习难度的合理性，但即使如此，真正决定课程效果的，还是你的每一次思考和实践。
-
-课程多数题目的解决方案都不是唯一的，这和我们在实际工作中的情况也是一致的。因此，我们的要求不仅仅是实现设计稿的效果，更是要多去思考不同的解决方案，评估不同方案的优劣，然后使用在该场景下最优雅的方式去实现。那些最终没有被我们采纳的方案，同样也可以帮助我们学到很多知识。所以，我们列出的参考资料未必是实现需求所必须的。有的时候，实现题目的要求很简单，甚至参考资料里就有，但是背后的思考和亲手去实践却是任务最关键的一部分。在学习这些资料时，要多思考，多提问，多质疑。相信通过和小伙伴们的交流，能让你的学习事半功倍。
-
-### 任务目的
-
-* 练习综合运用HTML、CSS、JavaScript实现局部功能
-* 练习对于代码的抽象与封装
-* 为第四阶段的RIA任务做准备
-
-### 任务描述
-
-* 基于任务41，进行如下图中的升级
-* 增加一个参数及相应接口方法，来决定这个日历组件是选择具体某天日期，还是选择一个时间段
-* 当设置为选择时间段时，需要在日历面板上点击两个日期来完成一次选择，两个日期中，较早的为起始时间，较晚的为结束时间，选择的时间段用特殊样式标示
-* 增加参数及响应接口方法，允许设置时间段选择的最小或最大跨度，并提供当不满足跨度设置时的默认处理及回调函数接口
-* 在弹出的日期段选择面板中增加确认和取消按钮
-
-### 任务注意事项
-
-* 示例图仅为参考，样式及交互方式不需要完全实现一致
-* 可以使用JQuery等类库，不可直接使用现成的日历组件
-* 请注意代码风格的整齐、优雅
-* 代码中含有必要的注释
-
-### 任务协作建议
-
-* 可同时做40，41，42，按任务分配
-* 团队集中讨论，明确题目要求，保证队伍各自对题目要求认知一致
-* 各自完成任务实践
-* 交叉互相Review其他人的代码，建议每个人至少看一个同组队友的代码
-* 相互讨论，最后合成一份组内最佳代码进行提交
-
-[0]: http://ife.baidu.com/task/all
-[1]: http://ife.baidu.com/note/all
-[2]: http://ife.baidu.com/statistic/index
-[3]: https://openapi.baidu.com/oauth/2.0/authorize?client_id=89XtMi6980UVMb5iMiRAL27g&response_type=code&redirect_uri=http%3A%2F%2Fife.baidu.com%2Flog%2Fin&scope=&state=57734030db393ccb70b0db406b667f42&display=page
-
+## 功能简介：
+1. 默认不启动，点击 input 后启动日历面板
+2. 有单选日期模式和时段模式两种，通过 period 参数来选择

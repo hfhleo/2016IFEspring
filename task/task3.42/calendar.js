@@ -1,16 +1,3 @@
-//===============> 数据接口 <===============
-/*
-calendarTool(node, chooseScope, callBack, period);
-- 日历生成节点
-  var node = '#nodeId';
-- 日期选择范围array，内部元素为 Date Object， 缺省值为 null
-  var chooseScope = [开始日期, 结束日期];
-- 回调函数
-  var callBack = function() { };
-- 日期跨度array, 内部元素为 integer, 缺省值为 null
-  var period = [最少天数，最多天数];
-*/
-
 //===============> 日历组件 <===============
 (function () {
   "use strict";
@@ -35,10 +22,10 @@ calendarTool(node, chooseScope, callBack, period);
     
     // 日历对象
     var calendar = {
-      node: "",
+      node: null,
       earliest: null,
       latest: null,
-      pickDay: new Date(),
+      pickDay: null,
       pickDay2: null,
       minPeriod: null,
       maxPeriod: null,
@@ -51,11 +38,17 @@ calendarTool(node, chooseScope, callBack, period);
       // 生成日历,传入高亮日期 getDate();
       showTheMonth: function() {
         var self = this;
-        //生成输入框
-        var date = this.dateToString(this.pickDay);
-        var insert = "<input type='text' value='" + date + "'>";
+        //设置当前日期
+        var input = new Date($(this.node).value);
+        if (this.pickDay === null) {
+          if (input > 0) {
+            this.pickDay = input;
+          } else {
+            this.pickDay = new Date();
+          }
+        }
         //生成年月表头
-         insert += "<article><header><input type='button'>" +
+        var insert = "<header><input type='button'>" +
            "<h3>" + this.monthLable[this.pickDay.getMonth()] + 
            "<span>" + this.pickDay.getFullYear() + "</span></h3>" + 
            "<input type='button'></header>";
@@ -79,12 +72,8 @@ calendarTool(node, chooseScope, callBack, period);
         };
         for (var i = 0; i < 42 ; i++) {
           var dateString = this.dateToString(nextDay);
-          //调用日期上限判断函数，设置 illegalDay 的 class
-          if (!this.inScope(nextDay, this.earliest, this.latest)) {
-            insert += "<div data-date='" + dateString + "' class='illegalDay'>" +
-              nextDay.getDate() + "</div>";
           // 设置面板内非当月的日期
-          } else if (nextDay.getMonth() !== this.pickDay.getMonth()) {
+          if (nextDay.getMonth() !== this.pickDay.getMonth()) {
             insert += "<div data-date='" + dateString + "' class='otherMonth'>" +
               nextDay.getDate() + "</div>";
           // 高亮选中的日期
@@ -100,6 +89,9 @@ calendarTool(node, chooseScope, callBack, period);
           } else if(this.pickDay2 !== null && pickDaysArr()[0] < nextDay &&
               nextDay < pickDaysArr()[1]) {
             insert += "<div data-date='" + dateString + "' class='amongPick'>" +
+              nextDay.getDate() + "</div>";
+          } else if (this.dateToString(new Date()) === dateString){
+            insert += "<div data-date='" + dateString + "' class='today'>" +
               nextDay.getDate() + "</div>";
           } else {
             insert += "<div data-date='" + dateString + "'>" +
@@ -122,26 +114,27 @@ calendarTool(node, chooseScope, callBack, period);
         // 生成时段选择模式下的确认/取消按钮
         if (this.minPeriod !== null) {
           insert += "<footer><button>确认</button>" +
-            "<button>取消</button></footer></article>";
+            "<button>取消</button></footer>";
         }
-        // 日期选择范围提示
-        if (this.earliest !== null || this.latest !== null) {
-          insert += "<p>选择范围：" + this.dateToString(this.earliest) +
-              " ~ " + this.dateToString(this.latest) + "</p>";
-        }
-        if (this.minPeriod !== null) {
-          insert += "<p>选择时长为：" + this.minPeriod + " ~ " +
-            this.maxPeriod + "天</p>";
-        }
-        $(node).innerHTML = insert;
-        
+        //===============> 生成节点 <===============
+        $(this.node + 'Panel').parentNode.style.position = 'relative';
+        $(this.node + 'Panel').innerHTML = insert;
+        $(this.node + 'Panel').style.left = $(this.node).offsetLeft +
+          ($(this.node).offsetWidth - 280) / 2 +'px';
+        $(this.node + 'Panel').style.top = $(this.node).offsetTop +
+          ($(this.node).previousElementSibling.offsetHeight + 14) +'px';
+
         // 更新日期输入框
         if (this.pickDay2 === null) {
-          $(node+' > input').value = this.dateToString(this.pickDay); 
+          $(this.node).value = this.dateToString(this.pickDay); 
         } else {
-          $(node+' > input').value = this.dateToString(pickDaysArr()[0]) + " ~ " +
+          $(this.node).value = this.dateToString(pickDaysArr()[0]) + " ~ " +
             this.dateToString(pickDaysArr()[1]);
         }
+        // 强制刷新 angularJS
+        var event = document.createEvent('HTMLEvents');
+        event.initEvent('change', true, false);
+        $(this.node).dispatchEvent(event);
         this.allEvent();
       },
 
@@ -150,25 +143,25 @@ calendarTool(node, chooseScope, callBack, period);
         var self = this;
 
         // 绑定年月选择按钮事件
-        addEvent($(node+' article > header input:first-child'), 'click', function() {
+        addEvent($(this.node + 'Panel > header input:first-child'), 'click', function(e) {
           self.pickDay.setMonth(self.pickDay.getMonth() - 1);
           self.showTheMonth();
         });
-        addEvent($(node+' article > header input:last-child'), 'click', function() {
+        addEvent($(this.node + 'Panel > header input:last-child'), 'click', function() {
           self.pickDay.setMonth(self.pickDay.getMonth() + 1);
           self.showTheMonth();
         });
-        addEvent($(node+' section > header input:first-child'), 'click', function() {
+        addEvent($(this.node + 'Panel section > header input:first-child'), 'click', function() {
           self.pickDay.setYear(self.pickDay.getFullYear() - 1);
-          $(node+' section:last-of-type h3').innerHTML = self.pickDay.getFullYear();
+          $(self.node + 'Panel section:last-of-type h3').innerHTML = self.pickDay.getFullYear();
         });
-        addEvent($(node+' section > header input:last-child'), 'click', function() {
+        addEvent($(this.node + 'Panel section > header input:last-child'), 'click', function() {
           self.pickDay.setYear(self.pickDay.getFullYear() + 1);
-          $(node+' section:last-of-type h3').innerHTML = self.pickDay.getFullYear();
+          $(self.node + 'Panel section:last-of-type h3').innerHTML = self.pickDay.getFullYear();
         });
         // 时段模式确认/取消按钮事件
         if (this.minPeriod !== null) {
-          addEvent($(node+' footer button:first-child'), 'click', function() {
+          addEvent($(self.node + 'Panel footer button:first-child'), 'click', function() {
             var check = self.inPeriod(self.pickDay, self.pickDay2, self.minPeriod,
                 self.maxPeriod);
             if (check === false) {
@@ -176,22 +169,18 @@ calendarTool(node, chooseScope, callBack, period);
               return;
             }
             var timer = setTimeout(function() {
-              $(node+' > article').style.display = "none";
+              $(self.node + 'Panel').style.display = "none";
             }, 500);
             self.callBack();
           });
-          addEvent($(node+' footer button:last-child'), 'click', function() {
-            /*
-            self.pickDay = null;
-            */
-            self.pickDay2 = null;
-            self.showTheMonth();
+          addEvent($(self.node + 'Panel footer button:last-child'), 'click', function() {
+          $(self.node + 'Panel').style.display = "none";
           });
         }
 
         // 点击选择单个日期
         if (this.minPeriod !== null) {
-          addEvent($(node+" article section:first-of-type"),"click",function(x) {
+          addEvent($(self.node + 'Panel section:first-of-type'),"click",function(x) {
             var tar = event.target;
             if (/data-date/.test(tar.attributes[0].name)) {
               // 调用日期上限判断函数
@@ -205,7 +194,7 @@ calendarTool(node, chooseScope, callBack, period);
             }
           });
         } else {
-          addEvent($(node+" article section:first-of-type"),"click",function(x) {
+          addEvent($(self.node + 'Panel section:first-of-type'),"click",function(x) {
             var tar = x.target;
             if (/data-date/.test(tar.attributes[0].name)) {
               // 调用日期上限判断函数
@@ -214,9 +203,10 @@ calendarTool(node, chooseScope, callBack, period);
                 return;
               }
               self.pickDay = new Date(tar.dataset.date);
+              $(self.node).value = tar.dataset.date;
               self.showTheMonth();
               var timer = setTimeout(function() {
-                $(node+' > article').style.display = "none";
+                $(self.node + 'Panel').style.display = "none";
               }, 500);
               self.callBack();
             }
@@ -224,7 +214,7 @@ calendarTool(node, chooseScope, callBack, period);
         }
 
         // 点击选择月份
-        addEvent($(node+" article section:last-of-type"),"click",function(x) {
+        addEvent($(self.node + 'Panel section:last-of-type'),"click",function(x) {
           var tar = x.target;
           if (tar.attributes[0] && /data-month/.test(tar.attributes[0].name)) {
             self.pickDay.setMonth(tar.dataset.month);
@@ -233,63 +223,24 @@ calendarTool(node, chooseScope, callBack, period);
         });
 
         // 切换月年选择模式和日期选择模式事件
-        addEvent($(node+' article > header h3'),'click',function() {
-          if ($(node+' article section:first-of-type').style.display === "flex") {
-            $(node+' article section:first-of-type').style.display = "none";
-            $(node+' article section:last-of-type').style.display = "flex";
+        addEvent($(self.node + 'Panel > header h3'),'click',function() {
+          if ($(self.node + 'Panel section:first-of-type').style.display === "flex") {
+            $(self.node + 'Panel section:first-of-type').style.display = "none";
+            $(self.node + 'Panel section:last-of-type').style.display = "flex";
           } else {
-            $(node+' article section:first-of-type').style.display = "flex";
-            $(node+' article section:last-of-type').style.display = "none";
-          }
-        });
-
-        // 输入框输入日期事件
-        addEvent($(node+' > input'),"keyup",function(x) {
-          if (x.keyCode === 13) {
-            var input = $(node+' > input');
-            // 调用日期输入格式检查函数
-            if (!self.inputCheck(input.value)) {
-              alert("请按‘2016-04-01’格式输入日期");
-              return;
-            }
-            // 调用检查日期是否在范围内，并提示
-            if (!self.inScope(input.value, self.earliest, self.latest)) {
-              alert("超出日期选择范围了。");
-              return;
-            }
-            self.pickDay = new Date(input.value);
-            self.showTheMonth();
-            var timer = setTimeout(function() {
-              $(node+' > article').style.display = "none";
-            }, 500);
-            self.callBack();
+            $(self.node + 'Panel section:first-of-type').style.display = "flex";
+            $(self.node + 'Panel section:last-of-type').style.display = "none";
           }
         });
 
         // 点击输入框显示/隐藏日历面板
-        addEvent($(node+' > input'), 'click', function() {
-          var calendar = $(node+' article');
-          var input = $(node+" > input");
-          if ( calendar.style.display === "") {
-            if (this.minPeriod === null) {
-              if (!self.inScope(input.value, self.earliest, self.latest)) {
-                alert("超出日期选择范围了。");
-                return;
-              }
-            } else {
-              alert("请选择合适的时间段并点击确认按钮。");
-              return;
-            }
-            calendar.style.display = "none";
-          } else {
+        
+        addEvent($(this.node), 'click', function() {
+          var calendar = $(self.node + 'Panel');
+          if ( calendar.style.display === "none") {
             calendar.style.display = "";
           }
         });
-      },
-
-      // 检查日期输入格式是否为‘2016-04-01’
-      inputCheck: function(input) {
-        return /^\d\d\d\d-\d\d-\d\d$/.test(input);
       },
 
       // 检查日期是否在范围内函数，传入 string 和 Date 均可
@@ -327,8 +278,12 @@ calendarTool(node, chooseScope, callBack, period);
         if (callBack) { this.callBack = callBack; }
         if (period && period[0] > 1) { this.minPeriod = period[0]; }
         if (period && period[1] > 1) { this.maxPeriod = period[1]; }
+        var idPanle = this.node + 'Panel';
+        if (!document.querySelector(idPanle)) {
+          var htmlString = "<article id='" + idPanle.replace('#','') + "'></article>";
+          $(this.node).insertAdjacentHTML('afterend', htmlString);
+        }
         this.showTheMonth();
-        $(node+' article').style.display = "none";
       }
     };
     calendar.init();

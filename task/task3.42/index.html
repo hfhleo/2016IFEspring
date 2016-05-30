@@ -4,25 +4,35 @@
 <head>
 <meta charset="UTF-8">
 <title>百度学院任务3.42</title>
-<link rel="stylesheet" href="calendarStyle.css">
+<link rel="stylesheet" href="reset.css">
+<link rel="stylesheet" href="calendar.css">
+<script src="calendar.js"></script>
 </head>
 
 <body>
 <h2>日历1（时段模式）</h2>
-<article id="calendar1"></article>
+<p>选择范围是今日至2017/01/01。</p>
+<p>选择时段为2到4天。</p>
+<label>选择日期</label> 
+<input type='text' id='calendar1' readonly>
+<hr>
 <h2>日历2（单选模式）</h2>
-<article id="calendar2"></article>
-<script src="calendar.js"></script>
+<label>选择日期</label>
+<input type='text' id='calendar2' readonly>
 <script>
 //===============> 日历组件数据接口 <===============
-var chooseScope = [new Date('2014-01-01'), new Date()];
+var chooseScope = [new Date, new Date('2017-01-01')];
 var callBack = function() {
   alert('我已回调，请主人放心。');
 };
-var period = [5, 10];
-calendarTool('#calendar1', chooseScope, callBack, period);
-calendarTool('#calendar2', null, callBack, null);
-
+var period = [2, 4];
+document.querySelector('#calendar1').onclick = function() {
+  calendarTool('#calendar1', chooseScope, callBack, period);
+};
+document.getElementById('calendar2').onclick = function() {
+  console.log('click');
+  calendarTool('#calendar2', null, callBack, null);
+};
 </script>
 </body>
 
