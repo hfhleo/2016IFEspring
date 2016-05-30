@@ -1,0 +1,121 @@
+$base-theme: #ee7d19
+
+[id$='Panel']
+  position: absolute
+  top: 0 
+  margin-bottom: 120px
+  border: 1px solid #ddd
+  width: 282px
+  background-color: white
+  box-shadow: 0 2px 3px lightgrey
+  &::before
+    position: absolute
+    content: ''
+    margin: 0
+    width: 0
+    height: 0
+    top: -10px
+    left: 132px 
+    border-style: solid
+    border-color: transparent transparent $base-theme transparent
+    border-width: 0 6px 10px 6px
+    background-color: transparent
+  header
+    display: flex
+    justify-content: space-between
+    height: 40px
+    padding: 0
+    line-height: 10px
+    text-align: center
+    font-size: 12px
+    color: white
+    background-color: $base-theme
+    border: none
+    h3
+      margin: 0
+      line-height: 40px
+      padding: 0 4px
+      cursor: pointer
+      span
+        margin-left: 10px 
+    input
+      position: relative
+      margin: 12px 10px
+      width: 0
+      height: 0
+      padding: 0
+      border-style: solid
+      border-color: transparent white transparent transparent
+      border-width: 8px
+      background-color: transparent
+      cursor: pointer
+      &:last-child
+        border-color: transparent transparent transparent white 
+    p
+      width: 40px
+      color: white
+      line-height: 40px
+  section:first-of-type
+    div
+      height: 30px
+      width: 40px
+      line-height: 30px
+      text-align: center
+      border-right: 1px solid #eee
+      border-bottom: 1px solid #eee
+      &:hover
+        color: black
+        background-color: #bceaf7
+    .otherMonth
+      color: #ddd 
+    .pickDay
+      color: white
+      background-color: darkorange 
+    .amongPick
+      background-color: #ffe2b2 
+    .illegalDay
+      background-color: #eee
+      color: black
+    .today
+      background-color: #ffe2b2 
+  p
+    font-size: 14px
+    color: #bbb
+  section:last-of-type
+    header
+      height: 30px
+      width: 100%
+      background-color: #ccc
+      color: black
+      margin: 0
+      cursor: auto
+    input
+      margin: 6px 10px
+    h3
+      line-height: 30px 
+      font-size: 13px
+    div
+      height: 50px
+      width: 70px
+      line-height: 50px
+      font-size: 14px
+      text-align: center
+      border-right: 1px solid #eee
+      border-bottom: 1px solid #eee
+      &:hover
+        background-color: #eee
+  footer
+    display: flex
+    justify-content: space-around
+    padding: 0
+    button
+      flex: 1 1 auto
+      margin: 0
+      padding: 5px
+      background-color: transparent
+      border: 1px solid darkorange
+      cursor: pointer
+      &:hover
+        background-color: #ffe2b2
+        color: black
+

@@ -104,27 +104,3 @@
   };
 })();
 
-//===============> 接口数据 <===============
-// 表格1
-var tableTitle = [
-  {label: "姓名", name: "name" , sort: false},
-  {label: "语文", name: "chinese" , sort: true},
-  {label: "数学", name: "math" , sort: true},
-  {label: "英语", name: "english", sort: true},
-  {label: "总分", name: "sum", sort: true}
-];
-var tableData = {};
-var letter = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P",
-  "Q","R","S","T","U","V","W","X","Y","Z"];
-for (var i = 0; i < letter.length ; i++) {
-  var a = Math.round(Math.random()*100);
-  tableData[letter[i]] = {
-    name: "小" + letter[i],
-    chinese: a,
-    math: a,
-    english: a,
-    sum: 3 * a,
-  };
-}
-// 传入(根目录 id，表头 array，表格数据 object，是否冻结表头)
-var t = createTable('#createTable', tableTitle, tableData, true);
